@@ -368,7 +368,7 @@ https://templatemo.com/tm-595-3d-coverflow
             }
 
             // Show/hide scroll to top button
-            if (window.scrollY > 1500) {
+            if (window.scrollY > 500) {
                 scrollToTopBtn.classList.add('visible');
             } else {
                 scrollToTopBtn.classList.remove('visible');
@@ -419,4 +419,5 @@ https://templatemo.com/tm-595-3d-coverflow
         container.focus();
 
         stopAutoplay();
+
 
