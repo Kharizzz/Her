@@ -7,70 +7,26 @@
   <link rel="icon" href="./images/pavicon.png">
   <link href="templatemo-3d-coverflow.css" rel="stylesheet">
   <style>
-    /* Tambahan animasi */
-  .fade-in {
-    animation: fadeIn 0.6s ease forwards;
-  }
-  .fade-out {
-    animation: fadeOut 0.6s ease forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.96); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  @keyframes fadeOut {
-    from { opacity: 1; transform: scale(1); }
-    to { opacity: 0; transform: scale(0.96); }
-  }
-  .progress-circle {
-  width: 60px;
-  height: 60px;
-  margin: 20px auto 0;
-  position: relative;
-}
-.progress-circle svg {
-  width: 100%;
-  height: 100%;
-}
-.progress-circle circle {
-  fill: none;
-  stroke-width: 4;
-  stroke-linecap: round;
-}
-.progress-bg {
-  stroke: rgba(255,255,255,0.2);
-}
-.progress-bar {
-  stroke: #fff;
-  stroke-dasharray: 6 6;   /* putus-putus */
-  animation: pulse 1.2s ease-in-out infinite;
-}
-
-/* animasi fade in - fade out */
-@keyframes pulse {
-  0% { opacity: 0.2; }
-  50% { opacity: 1; }
-  100% { opacity: 0.2; }
-}
-
-
     body, html {
       margin:0; padding:0;
       height:100%; width:100%;
       font-family: 'Segoe UI', sans-serif;
+      background: #000;
     }
+
     .landing {
       width:100%;
       height:100vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      background: url("./images/landing.jpg") no-repeat center center/cover;
-      color:#fff;
-      text-align:center;
       padding:24px;
       position: relative;
+      text-align:center;
+      color: #fff;
+      background: url("./images/landing.jpg") no-repeat center center/cover;
     }
+
     .landing-card {
       max-width:720px;
       width:100%;
@@ -81,9 +37,10 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       z-index: 10;
     }
-    .landing h1 { font-size:2.4rem; margin-bottom:8px; }
-    .landing h2 { font-size:1.6rem; margin-bottom:16px; }
-    .landing p { margin-bottom:18px; opacity:0.95; font-size:1.1rem; }
+
+    h1 { font-size:2.4rem; margin-bottom:8px; }
+    h2 { font-size:1.6rem; margin-bottom:16px; }
+    p { margin-bottom:18px; opacity:0.95; font-size:1.1rem; }
     .btn { 
       display:inline-block;
       background: rgba(255,255,255,0.15);
@@ -117,11 +74,51 @@
     ul.rules li {
       margin-bottom:10px;
     }
+
+    /* Fade animations */
+    .fade-in { animation: fadeIn 0.6s ease forwards; }
+    .fade-out { animation: fadeOut 0.6s ease forwards; }
+    @keyframes fadeIn { from { opacity:0; transform:scale(0.96);} to {opacity:1; transform:scale(1);} }
+    @keyframes fadeOut { from { opacity:1; transform:scale(1);} to {opacity:0; transform:scale(0.96);} }
+
+    /* Joke screen */
+    .progress-circle {
+      width: 60px;
+      height: 60px;
+      margin: 20px auto 0;
+      position: relative;
+    }
+    .progress-circle svg {
+      width: 100%;
+      height: 100%;
+    }
+    .progress-circle circle {
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+    }
+    .progress-bg { stroke: rgba(255,255,255,0.2); }
+    .progress-bar {
+      stroke: #fff;
+      stroke-dasharray: 6 6;
+      animation: pulse 1.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0% { opacity: 0.2; }
+      50% { opacity: 1; }
+      100% { opacity: 0.2; }
+    }
+
+    /* Countdown screen numbers */
+    #countdownText { font-size: 1.6rem; margin-bottom: 16px; }
+    #countdownNumber { font-size:4rem; margin-top:20px; }
+
   </style>
 </head>
 <body>
   <section class="landing">
     <div class="landing-card">
+
       <!-- Intro -->
       <div id="startScreen">
         <h1>Hey 💌</h1>
@@ -129,19 +126,17 @@
         <button id="startBtn" class="btn">Mulai</button>
       </div>
 
+      <!-- Joke Screen Template -->
       <div id="jokeScreen" class="hidden">
         <h2 id="jokeQuestion"></h2>
         <p id="jokeAnswer" style="font-size:1.3rem; margin-top:10px;"></p>
         <div class="progress-circle">
-            <svg viewBox="0 0 100 100">
-              <circle class="progress-bg" cx="50" cy="50" r="45"></circle>
-              <circle class="progress-bar" cx="50" cy="50" r="45"></circle>
-            </svg>
-          </div>
-                    
-          
+          <svg viewBox="0 0 100 100">
+            <circle class="progress-bg" cx="50" cy="50" r="45"></circle>
+            <circle class="progress-bar" cx="50" cy="50" r="45"></circle>
+          </svg>
+        </div>
       </div>
-      
 
       <!-- Q1 -->
       <div id="q1" class="hidden">
@@ -173,8 +168,7 @@
 
       <!-- Q4 -->
       <div id="q4" class="hidden">
-        <h2>Pertanyaan serius ni...
-            apakah Jokowi harus diadili?🤨</h2>
+        <h2>Pertanyaan serius ni... apakah Jokowi harus diadili?🤨</h2>
         <div class="answers">
           <button class="answer btn" data-next="q5">Wajibun!😠</button>
           <button class="answer btn" data-next="q5">Jelaslah🥱</button>
@@ -183,7 +177,7 @@
 
       <!-- Riddle -->
       <div id="q5" class="hidden">
-        <h2> Oke cukup, terakhir nihh... deng deng deng🎤🎤🎤</h2>
+        <h2>Oke cukup, terakhir nihh... deng deng deng🎤🎤🎤</h2>
         <p>"Dengan sebutan apa biasanya Nida manggil elu?"</p>
         <input type="text" id="riddleAnswer" class="input-box" placeholder="Tulis jawaban...">
         <div>
@@ -192,11 +186,12 @@
         <div id="riddleMessage" class="message"></div>
       </div>
 
-      <!-- Do's and Don'ts -->
+      <!-- Rules -->
       <div id="rules" class="hidden">
-        <h2>Sebelum mulai, ada beberapa hal penting yang harus diikutin:</h2>
+        <h2>Sebelum mulai, ada beberapa hal penting yang harus diperhatiin:</h2>
         <ul class="rules">
           <li>🔊 Naikkin volumenya atau pake headphone dongg biar lebih asyiqq.</li>
+          <li>🌇 Di tempat yang sunyi dan redup akan lebih khidmat lhoo hehe</li>
           <li>🤗 Pastiin suasana hati lagi seneng yaa, gak lagi laper ato kesel xixi.</li>
           <li>✨ Nikmatin dan resapin kata-katanya okey, pelan-pelan dan bernada aja bacanya.</li>
           <li>🚫 Jangan geser atau scroll sebelum diminta yaa.</li>
@@ -204,8 +199,17 @@
         <p>So, are you ready for the journey?</p>
         <button id="finalBtn" class="btn">Yes I am 😎</button>
       </div>
+
+    <!-- Countdown Screen (reuse joke styling) -->
+    <div id="countdownScreen" class="hidden">
+      <h2 id="countdownText">GET READY! IT WILL SOON BEGIN IN:</h2>
+      <p id="countdownNumber">3</p>
+      <h2 id="countdownEndText" class="hidden">Enjoy… 🎉</h2>
+    </div>
+
     </div>
   </section>
+
   <script>
     const startBtn = document.getElementById('startBtn');
     const answers = document.querySelectorAll('.answer');
@@ -213,81 +217,74 @@
     const riddleInput = document.getElementById('riddleAnswer');
     const riddleMsg = document.getElementById('riddleMessage');
     const finalBtn = document.getElementById('finalBtn');
-  
-    // Jokes list
-        const jokes = [
-    { q: "😁It's Joke Time!😁\n🐑 Hewan-hewan apa yang lembut?", a: "Smooth🐜 xixixi" },
-    { q: "😁Another Joke Time!😁\n💸 Uang-uang apa yang selalu mau berubah?", a: "Goceng (Go Change) 😆" },
-    { q: "😁It's Joke Time Again!😁\n🥦 Sayur-sayur apa yang bisa nelpon?", a: "Sayur Call📞 xixix" },
-    { q: "😁Lastly! It's Joke Time!😁\n🐱 Kucing-kucing apa yang ga pernah salah?", a: "Kucing ga wrong❌😹rawrr" }
+
+    const jokes = [
+      { q: "😁It's Joke Time!😁\n🐑 Hewan-hewan apa yang lembut?", a: "Smooth🐜 xixixi" },
+      { q: "😁Another Joke Time!😁\n💸 Uang-uang apa yang selalu mau berubah?", a: "Goceng (Go Change) 😆" },
+      { q: "😁It's Joke Time Again!😁\n🥦 Sayur-sayur apa yang bisa nelpon?", a: "Sayur Call📞 xixix" },
+      { q: "😁Lastly! It's Joke Time!😁\n🐱 Kucing-kucing apa yang ga pernah salah?", a: "Kucing ga wrong❌😹rawrr" }
     ];
 
     let jokeIndex = 0;
-  
-    // Intro → Q1
+
+    // Start → Q1
     startBtn.addEventListener('click', () => {
       document.getElementById('startScreen').classList.add('hidden');
       document.getElementById('q1').classList.remove('hidden');
     });
-  
-    // Handle answers + jokes
+
+    // Handle question answers
     answers.forEach(btn => {
       btn.addEventListener('click', () => {
         const next = btn.dataset.next;
         const current = btn.closest('div').parentElement;
-  
-        // animasi keluar
+
         current.classList.add('fade-out');
         setTimeout(() => {
           current.classList.add('hidden');
           current.classList.remove('fade-out');
-  
-          // kalau masih ada jokes
-          // inside the setTimeout that shows the joke
-        if (jokeIndex < jokes.length) {
-        const jokeScreen = document.getElementById('jokeScreen');
-        const progress = document.querySelector('.progress-bar');
 
-        // Replace line breaks with <br> safely
-        document.getElementById('jokeQuestion').innerHTML = jokes[jokeIndex].q.replace(/\n/g, '<br>');
-        document.getElementById('jokeAnswer').textContent = jokes[jokeIndex].a;
+          // Show joke if still available
+          if (jokeIndex < jokes.length) {
+            const jokeScreen = document.getElementById('jokeScreen');
+            const progress = document.querySelector('.progress-bar');
 
-        jokeScreen.classList.remove('hidden');
-        jokeScreen.classList.add('fade-in');
+            document.getElementById('jokeQuestion').innerHTML = jokes[jokeIndex].q.replace(/\n/g,'<br>');
+            document.getElementById('jokeAnswer').textContent = jokes[jokeIndex].a;
 
-        // Reset progress
-        progress.style.transition = 'none';
-        progress.style.strokeDashoffset = 283;
-        void progress.offsetWidth; // reflow
-        progress.style.transition = 'stroke-dashoffset 5s linear';
-        progress.style.strokeDashoffset = 0;
+            jokeScreen.classList.remove('hidden');
+            jokeScreen.classList.add('fade-in');
 
-        setTimeout(() => {
-            jokeScreen.classList.remove('fade-in');
-            jokeScreen.classList.add('fade-out');
+            progress.style.transition = 'none';
+            progress.style.strokeDashoffset = 283;
+            void progress.offsetWidth;
+            progress.style.transition = 'stroke-dashoffset 5s linear';
+            progress.style.strokeDashoffset = 0;
+
             setTimeout(() => {
-            jokeScreen.classList.add('hidden');
-            jokeScreen.classList.remove('fade-out');
-            document.getElementById(next).classList.remove('hidden');
-            document.getElementById(next).classList.add('fade-in');
-            }, 600);
-        }, 8000);
+              jokeScreen.classList.remove('fade-in');
+              jokeScreen.classList.add('fade-out');
+              setTimeout(() => {
+                jokeScreen.classList.add('hidden');
+                jokeScreen.classList.remove('fade-out');
+                document.getElementById(next).classList.remove('hidden');
+                document.getElementById(next).classList.add('fade-in');
+              }, 600);
+            }, 8000);
 
-        jokeIndex++;
-        }
- else {
-            // kalau jokes habis → langsung next
+            jokeIndex++;
+          } else {
             document.getElementById(next).classList.remove('hidden');
             document.getElementById(next).classList.add('fade-in');
           }
         }, 600);
       });
     });
-  
+
     // Riddle checking
     checkAnswer.addEventListener('click', () => {
       const answer = riddleInput.value.trim().toLowerCase();
-      if (answer === "bbotelll") {
+      if(answer === "bbotelll"){
         riddleMsg.textContent = "Yeay benerr!! Yuk lanjut 👉";
         riddleMsg.style.color = "#7CFC00";
         setTimeout(() => {
@@ -299,13 +296,44 @@
         riddleMsg.style.color = "tomato";
       }
     });
-  
-    // Final button → gallery
+
+    // Final button → Countdown → Gallery
     finalBtn.addEventListener('click', () => {
-      sessionStorage.setItem('fromLanding', '1');
-      window.location.href = 'gallery.html?autoplay=1';
+      const rulesScreen = document.getElementById('rules');
+      const countdownScreen = document.getElementById('countdownScreen');
+
+      rulesScreen.classList.add('fade-out');
+      setTimeout(() => {
+        rulesScreen.classList.add('hidden');
+        rulesScreen.classList.remove('fade-out');
+
+        countdownScreen.classList.remove('hidden');
+        countdownScreen.classList.add('fade-in');
+
+        let count = 3;
+        const countdownNumber = document.getElementById('countdownNumber');
+
+        const interval = setInterval(() => {
+          countdownNumber.textContent = count;
+          countdownNumber.classList.remove('fade-in');
+          void countdownNumber.offsetWidth;
+          countdownNumber.classList.add('fade-in');
+
+          count--;
+          if(count < 0){
+            clearInterval(interval);
+            countdownScreen.classList.remove('fade-in');
+            countdownScreen.classList.add('fade-out');
+            setTimeout(() => {
+              countdownScreen.classList.add('hidden');
+              countdownScreen.classList.remove('fade-out');
+              sessionStorage.setItem('fromLanding','1');
+              window.location.href = 'gallery.html?autoplay=1';
+            }, 600);
+          }
+        }, 1000);
+      }, 600);
     });
   </script>
-  
 </body>
 </html>
