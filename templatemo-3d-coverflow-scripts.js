@@ -278,7 +278,7 @@ https://templatemo.com/tm-595-3d-coverflow
             autoplayInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % items.length;
                 updateCoverflow();
-            }, 30000);
+            }, 25000);
             isPlaying = true;
             playIcon.style.display = 'none';
             pauseIcon.style.display = 'block';
@@ -368,7 +368,7 @@ https://templatemo.com/tm-595-3d-coverflow
             }
 
             // Show/hide scroll to top button
-            if (window.scrollY > 3500) {
+            if (window.scrollY > 2500) {
                 scrollToTopBtn.classList.add('visible');
             } else {
                 scrollToTopBtn.classList.remove('visible');
@@ -417,4 +417,5 @@ https://templatemo.com/tm-595-3d-coverflow
         // Initialize
         updateCoverflow();
         container.focus();
+
         stopAutoplay();
