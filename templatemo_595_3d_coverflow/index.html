@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Only For You — Start</title>
+  <link rel="icon" href="./images/pavicon.png">
+  <link href="templatemo-3d-coverflow.css" rel="stylesheet">
+  <style>
+    /* Tambahan animasi */
+  .fade-in {
+    animation: fadeIn 0.6s ease forwards;
+  }
+  .fade-out {
+    animation: fadeOut 0.6s ease forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes fadeOut {
+    from { opacity: 1; transform: scale(1); }
+    to { opacity: 0; transform: scale(0.96); }
+  }
+  .progress-circle {
+  width: 60px;
+  height: 60px;
+  margin: 20px auto 0;
+  position: relative;
+}
+.progress-circle svg {
+  width: 100%;
+  height: 100%;
+}
+.progress-circle circle {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.progress-bg {
+  stroke: rgba(255,255,255,0.2);
+}
+.progress-bar {
+  stroke: #fff;
+  stroke-dasharray: 6 6;   /* putus-putus */
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+/* animasi fade in - fade out */
+@keyframes pulse {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+
+    body, html {
+      margin:0; padding:0;
+      height:100%; width:100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .landing {
+      width:100%;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: url("./images/landing.jpg") no-repeat center center/cover;
+      color:#fff;
+      text-align:center;
+      padding:24px;
+      position: relative;
+    }
+    .landing-card {
+      max-width:720px;
+      width:100%;
+      padding:28px;
+      border-radius:18px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      z-index: 10;
+    }
+    .landing h1 { font-size:2.4rem; margin-bottom:8px; }
+    .landing h2 { font-size:1.6rem; margin-bottom:16px; }
+    .landing p { margin-bottom:18px; opacity:0.95; font-size:1.1rem; }
+    .btn { 
+      display:inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid white;
+      color: white;
+      padding:10px 20px;
+      border-radius:30px;
+      cursor:pointer;
+      margin:8px;
+      font-size:1rem;
+      transition:0.3s;
+    }
+    .btn:hover { background: rgba(255,255,255,0.3); }
+    .hidden { display:none; }
+    .answers { margin-top:12px; }
+    .input-box {
+      padding:8px 12px;
+      border-radius:8px;
+      border:none;
+      font-size:1rem;
+      width:80%;
+      max-width:300px;
+    }
+    .message { margin-top:12px; font-size:1rem; font-weight:500; }
+    ul.rules {
+      text-align:left;
+      margin: 20px auto;
+      max-width: 500px;
+      font-size:1rem;
+    }
+    ul.rules li {
+      margin-bottom:10px;
+    }
+  </style>
+</head>
+<body>
+  <section class="landing">
+    <div class="landing-card">
+      <!-- Intro -->
+      <div id="startScreen">
+        <h1>Hey 💌</h1>
+        <p>I made something special for you. But first — a few quick questions😁</p>
+        <button id="startBtn" class="btn">Mulai</button>
+      </div>
+
+      <div id="jokeScreen" class="hidden">
+        <h2 id="jokeQuestion"></h2>
+        <p id="jokeAnswer" style="font-size:1.3rem; margin-top:10px;"></p>
+        <div class="progress-circle">
+            <svg viewBox="0 0 100 100">
+              <circle class="progress-bg" cx="50" cy="50" r="45"></circle>
+              <circle class="progress-bar" cx="50" cy="50" r="45"></circle>
+            </svg>
+          </div>
+                    
+          
+      </div>
+      
+
+      <!-- Q1 -->
+      <div id="q1" class="hidden">
+        <h2>Sekarang posisinya lagi ngapain?</h2>
+        <div class="answers">
+          <button class="answer btn" data-next="q2">Rebahan💆‍♀️</button>
+          <button class="answer btn" data-next="q2">Duduk🧎‍♀️</button>
+          <button class="answer btn" data-next="q2">Berdiri Mau Salto🤸‍♀️</button>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div id="q2" class="hidden">
+        <h2>Penasaran gak sama isinya?🙃</h2>
+        <div class="answers">
+          <button class="answer btn" data-next="q3">Iyaa😆</button>
+          <button class="answer btn" data-next="q3">Duh Pake Nanya😫</button>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div id="q3" class="hidden">
+        <h2>Btw, suka tiba-tiba kangen ga si sama suasana KKN?😕</h2>
+        <div class="answers">
+          <button class="answer btn" data-next="q4">Iya njir😓</button>
+          <button class="answer btn" data-next="q4">Parah menn😤</button>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div id="q4" class="hidden">
+        <h2>Pertanyaan serius ni...
+            apakah Jokowi harus diadili?🤨</h2>
+        <div class="answers">
+          <button class="answer btn" data-next="q5">Wajibun!😠</button>
+          <button class="answer btn" data-next="q5">Jelaslah🥱</button>
+        </div>
+      </div>
+
+      <!-- Riddle -->
+      <div id="q5" class="hidden">
+        <h2> Oke cukup, terakhir nihh... deng deng deng🎤🎤🎤</h2>
+        <p>"Dengan sebutan apa biasanya Nida manggil elu?"</p>
+        <input type="text" id="riddleAnswer" class="input-box" placeholder="Tulis jawaban...">
+        <div>
+          <button id="checkAnswer" class="btn">Cek</button>
+        </div>
+        <div id="riddleMessage" class="message"></div>
+      </div>
+
+      <!-- Do's and Don'ts -->
+      <div id="rules" class="hidden">
+        <h2>Sebelum mulai, ada beberapa hal penting yang harus diikutin:</h2>
+        <ul class="rules">
+          <li>🔊 Naikkin volumenya atau pake headphone dongg biar lebih asyiqq.</li>
+          <li>🤗 Pastiin suasana hati lagi seneng yaa, gak lagi laper ato kesel xixi.</li>
+          <li>✨ Nikmatin dan resapin kata-katanya okey, pelan-pelan dan bernada aja bacanya.</li>
+          <li>🚫 Jangan geser atau scroll sebelum diminta yaa.</li>
+        </ul>
+        <p>So, are you ready for the journey?</p>
+        <button id="finalBtn" class="btn">Yes I am 😎</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const answers = document.querySelectorAll('.answer');
+    const checkAnswer = document.getElementById('checkAnswer');
+    const riddleInput = document.getElementById('riddleAnswer');
+    const riddleMsg = document.getElementById('riddleMessage');
+    const finalBtn = document.getElementById('finalBtn');
+  
+    // Jokes list
+        const jokes = [
+    { q: "😁It's Joke Time!😁\n🐑 Hewan-hewan apa yang lembut?", a: "Smooth🐜 xixixi" },
+    { q: "😁Another Joke Time!😁\n💸 Uang-uang apa yang selalu mau berubah?", a: "Goceng (Go Change) 😆" },
+    { q: "😁It's Joke Time Again!😁\n🥦 Sayur-sayur apa yang bisa nelpon?", a: "Sayur Call📞 xixix" },
+    { q: "😁Lastly! It's Joke Time!😁\n🐱 Kucing-kucing apa yang ga pernah salah?", a: "Kucing ga wrong❌😹rawrr" }
+    ];
+
+    let jokeIndex = 0;
+  
+    // Intro → Q1
+    startBtn.addEventListener('click', () => {
+      document.getElementById('startScreen').classList.add('hidden');
+      document.getElementById('q1').classList.remove('hidden');
+    });
+  
+    // Handle answers + jokes
+    answers.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const next = btn.dataset.next;
+        const current = btn.closest('div').parentElement;
+  
+        // animasi keluar
+        current.classList.add('fade-out');
+        setTimeout(() => {
+          current.classList.add('hidden');
+          current.classList.remove('fade-out');
+  
+          // kalau masih ada jokes
+          // inside the setTimeout that shows the joke
+        if (jokeIndex < jokes.length) {
+        const jokeScreen = document.getElementById('jokeScreen');
+        const progress = document.querySelector('.progress-bar');
+
+        // Replace line breaks with <br> safely
+        document.getElementById('jokeQuestion').innerHTML = jokes[jokeIndex].q.replace(/\n/g, '<br>');
+        document.getElementById('jokeAnswer').textContent = jokes[jokeIndex].a;
+
+        jokeScreen.classList.remove('hidden');
+        jokeScreen.classList.add('fade-in');
+
+        // Reset progress
+        progress.style.transition = 'none';
+        progress.style.strokeDashoffset = 283;
+        void progress.offsetWidth; // reflow
+        progress.style.transition = 'stroke-dashoffset 5s linear';
+        progress.style.strokeDashoffset = 0;
+
+        setTimeout(() => {
+            jokeScreen.classList.remove('fade-in');
+            jokeScreen.classList.add('fade-out');
+            setTimeout(() => {
+            jokeScreen.classList.add('hidden');
+            jokeScreen.classList.remove('fade-out');
+            document.getElementById(next).classList.remove('hidden');
+            document.getElementById(next).classList.add('fade-in');
+            }, 600);
+        }, 8000);
+
+        jokeIndex++;
+        }
+ else {
+            // kalau jokes habis → langsung next
+            document.getElementById(next).classList.remove('hidden');
+            document.getElementById(next).classList.add('fade-in');
+          }
+        }, 600);
+      });
+    });
+  
+    // Riddle checking
+    checkAnswer.addEventListener('click', () => {
+      const answer = riddleInput.value.trim().toLowerCase();
+      if (answer === "bbotelll") {
+        riddleMsg.textContent = "Yeay benerr!! Yuk lanjut 👉";
+        riddleMsg.style.color = "#7CFC00";
+        setTimeout(() => {
+          document.getElementById('q5').classList.add('hidden');
+          document.getElementById('rules').classList.remove('hidden');
+        }, 2000);
+      } else {
+        riddleMsg.textContent = "Weh salah 😛. Bukannya udah dikasih clue-nya?";
+        riddleMsg.style.color = "tomato";
+      }
+    });
+  
+    // Final button → gallery
+    finalBtn.addEventListener('click', () => {
+      sessionStorage.setItem('fromLanding', '1');
+      window.location.href = 'gallery.html?autoplay=1';
+    });
+  </script>
+  
+</body>
+</html>
