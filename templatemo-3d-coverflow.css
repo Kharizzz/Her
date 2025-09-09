@@ -22,6 +22,7 @@ https://templatemo.com/tm-595-3d-coverflow
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             overflow-x: hidden;
+			width: 100%;
             position: relative;
             background-color: #160016;
         }
@@ -1337,4 +1338,5 @@ https://templatemo.com/tm-595-3d-coverflow
                 font-size: 16px;
                 border-radius: 25px;
             }
+
         }
