@@ -184,6 +184,8 @@ https://templatemo.com/tm-595-3d-coverflow
 
         .coverflow-container {
             width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
             height: 100%;
             display: flex;
             align-items: center;
@@ -1340,3 +1342,4 @@ https://templatemo.com/tm-595-3d-coverflow
             }
 
         }
+
