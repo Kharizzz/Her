@@ -990,37 +990,36 @@ https://templatemo.com/tm-595-3d-coverflow
         .footer-links a:hover {
             color: white;
         }
+/* Scroll to top button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* changed from right: 30px */
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 0.3s ease;
+    z-index: 999;
+}
 
-        /* Scroll to top button */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0;
-            transform: translateY(100px);
-            transition: all 0.3s ease;
-            z-index: 999;
-        }
+.scroll-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-        .scroll-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .scroll-to-top:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
-        }
+.scroll-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.5);
+}
 
         /* Mobile Responsive */
         @media (max-width: 1024px) {
@@ -1342,4 +1341,5 @@ https://templatemo.com/tm-595-3d-coverflow
             }
 
         }
+
 
