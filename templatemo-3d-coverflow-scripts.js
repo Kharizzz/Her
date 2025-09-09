@@ -55,7 +55,7 @@ https://templatemo.com/tm-595-3d-coverflow
             },
             {
                 title: "The Sweet Remains",
-                description: "Malam terindah selama KKN, dan mungkin selama gw hidup. Dalam sunyi kita deep-talk sama yang lain ditemani oleh pencahayaan redup. Ada lagi sebelum itu, gw pup🤣. Maksud gw sebelumnya lagi dimana kita berdua ngobrol banyak walau gugup. Tapi di malem itu gw coba keluarin semua isi hati dan pikiran gw yang selama ini ketutup😣. Yuk scroll👇"
+                description: "Malam terindah selama KKN, dan mungkin selama gw hidup. Dalam sunyi kita deep-talk sama yang lain ditemani oleh pencahayaan redup. Ada lagi sebelum itu, gw pup🤣. Salah2, maksud gw sebelumnya lagi dimana kita berdua ngobrol banyak walau gugup. Tapi di malem itu gw coba keluarin semua isi hati dan pikiran gw yang selama ini ketutup😣. Yuk scroll pelan-pelan👇"
             },
             {
                 title: "The First Meeting",
@@ -419,5 +419,6 @@ https://templatemo.com/tm-595-3d-coverflow
         container.focus();
 
         stopAutoplay();
+
 
 
