@@ -298,7 +298,7 @@ https://templatemo.com/tm-595-3d-coverflow
             autoplayInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % items.length;
                 updateCoverflow();
-            }, 25000);
+            }, 22000);
             isPlaying = true;
             playIcon.style.display = 'none';
             pauseIcon.style.display = 'block';
@@ -440,5 +440,6 @@ https://templatemo.com/tm-595-3d-coverflow
         container.focus();
 
         stopAutoplay();
+
 
 
