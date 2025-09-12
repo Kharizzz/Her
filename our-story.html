@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story</title>
+    <link rel="icon" href="./images/pavicon.png">
+    <link href="templatemo-3d-coverflow.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Tangerine&display=swap" rel="stylesheet">
+<!--
+
+TemplateMo 595 3d coverflow
+
+https://templatemo.com/tm-595-3d-coverflow
+
+-->
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader"></div>
+    <p style="color:white; font-size:1.2rem; margin-top:20px;">Loading, please wait...</p>
+  </div>
+  <div id="galleryContent" style="display:none;">
+    <!-- Header -->
+    <header class="header" id="header">
+        <a href="#home" class="logo-container">
+            <div class="logo"><img src="./images/pavicon.png" alt="" style="width: 70%;">
+                
+            </div>
+            <div class="logo-text">Ikutin Pelan-Pelan Ya!&#128521;</div>
+        </a>
+        
+        <!-- <nav class="main-menu" id="mainMenu">
+            <a href="#home" class="menu-item active">Home</a>
+            <a href="#about" class="menu-item">About</a>
+            <a href="#contact" class="menu-item">Contact</a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="menu-item external">GitHub</a>
+        </nav> -->
+        
+        <div class="menu-toggle" id="menuToggle" style="display: none;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+    <audio id="bgMusic" loop>
+        <source src="./images/bergema.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      
+    <!-- Home Section -->
+    <section id="home" class="section">
+        <div class="coverflow-wrapper">
+            <div class="info">
+                <h2 id="current-title" style="display: inline-block;">Mountain Landscape</h2>
+                <p id="current-description">Majestic peaks covered in snow during golden hour</p>
+            </div>
+
+            <div class="coverflow-container" tabindex="0">
+                <div class="coverflow" id="coverflow">
+                    <div class="coverflow-item" data-index="0">
+                        <div class="cover image-loading">
+                            <img src="images/5.jpg" alt="Mountain Landscape" loading="lazy">
+                        </div>
+                        <div class="reflection"></div>
+                    </div>
+                    <div class="coverflow-item" data-index="1">
+                        <div class="cover image-loading">
+                            <img src="images/6.jpg" alt="Forest Path" loading="lazy">
+                        </div>
+                        <div class="reflection"></div>
+                    </div>
+                    <div class="coverflow-item" data-index="2">
+                        <div class="cover image-loading">
+                            <img src="images/7.jpg" alt="Lake Reflection" loading="lazy">
+                        </div>
+                        <div class="reflection"></div>
+                    </div>
+                    <div class="coverflow-item" data-index="3">
+                        <div class="cover image-loading">
+                            <img src="images/1.jpg" alt="Our" loading="lazy">
+                        </div>
+                        <div class="reflection"></div>
+                    </div>
+                    <div class="coverflow-item" data-index="4">
+                        <div class="cover image-loading">
+                            <img src="images/2.jpg" alt="Desert Dunes" loading="lazy">
+                        </div>
+                        <div class="reflection"></div>
+                    </div>
+                    <div class="coverflow-item" data-index="5">
+                        <div class="cover image-loading">
+                            <img src="images/3.jpg" alt="Starry Night" loading="lazy">
+                        </div>
+                        <div class="reflection"></div>
+                    </div>
+                    <div class="coverflow-item" data-index="6">
+                        <div class="cover image-loading">
+                            <img src="images/4.jpg" alt="Waterfall" loading="lazy">
+                        </div>
+                        <div class="reflection"></div>
+                    </div>
+                </div>
+
+                <button class="nav-button prev" onclick="navigate(-1)" style="display: none;">‹</button>
+                <button class="nav-button next" onclick="navigate(1)" style="display: none;">›</button>
+
+                <div class="dots-container" id="dots" style="display: none;"></div>
+                
+                <!-- Play/Pause Button -->
+                <button class="play-pause-button" id="playPauseBtn" onclick="toggleAutoplay()">
+                    <span class="play-icon">▶</span>
+                    <span class="pause-icon" style="display: none;">❚❚</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Scroll Text Sections -->
+    <section class="scroll-sections">
+        <div class="scroll-text from-top font-santai" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+          Yeay seru banget gak sii?? Tapi lebih seru lagi kalo itu semua bisa lanjut dan ga berhenti
+          cuma sampe di sini xixi😁
+        </div>
+      
+        <div class="scroll-text from-right font-formal" style="font-family: 'Times New Roman', serif;">
+          I love you and now you know. I don't want to push you to feel the same.
+          I just want you to be happy, even without me😉
+        </div>
+      
+        <div class="scroll-text from-left font-indah" style="font-family: 'Tangerine', cursive; font-weight: normal; font-size: 4.5rem;">
+           Sing penting sampeyan njaga awak lan kesehatan apik-apik. Aku wes cukup seneng kok mung tau ketemu lan kenal sampeyan wae, dadi maturnuwun yaa.
+        </div>
+      
+        <div class="scroll-text from-bottom font-santai" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+          Kalo kata Nadhif ini sayang terlewatkan. Tapi yauda kalo emang gabisa jangan dipaksakan,
+          karena terlewatkan pun tetep sayang.
+        </div> <img src="images/awksmile_white.png" alt="" style="width: 50%; margin-top:-5%; justify-content: center; align-items: center;">
+        <div class="scroll-text from-bottom font-santai" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">
+            Eh tapi tapi, ada lagi nih sesuatu, abis ini kita akan menjelajahi bintang-bintang yang begitu indah nan seru. k..kk..kaya kamu👉👈. xixi 
+            nanti coba mainin ya, bisa dizoom in/out, digeser, atau diapa2in gitu. yang lama aja sekalian nikmatin lagu, tapi kalo udah selesai pencet tombol yang di kiri bawah ya. Siap? Yuk scroll ke bawah  
+          </div> 
+    </section>
+      
+  
+    
+
+    <!-- Scroll to top button -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <span>↓</span>
+    </div>
+
+<script src="templatemo-3d-coverflow-scripts.js"></script>
+
+  </div>
+    <div id="galaxy" style="width:100%; height:100vh; overflow:hidden; margin:0;" style="display:none;">
+    <style>
+      @import "https://fonts.googleapis.com/css2?family=Megrim&display=swap";
+      #galaxy {
+        position: relative;
+      }
+      #galaxy canvas {
+        display: block;
+      }
+    </style>
+  
+    <script type="module">
+      import * as THREE from "https://cdn.skypack.dev/three@0.136.0";
+      import { OrbitControls } from "https://cdn.skypack.dev/three@0.136.0/examples/jsm/controls/OrbitControls";
+  
+      console.clear();
+  
+      const container = document.getElementById("galaxy");
+  
+      let scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x160016);
+      let camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 1, 1000);
+      camera.position.set(0, 4, 21);
+      let renderer = new THREE.WebGLRenderer();
+      renderer.setSize(container.clientWidth, container.clientHeight);
+      container.appendChild(renderer.domElement);
+  
+      window.addEventListener("resize", () => {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      });
+  
+      let controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.enablePan = false;
+  
+      let gu = { time: { value: 0 } };
+  
+      let sizes = [];
+      let shift = [];
+      let pushShift = () => {
+        shift.push(
+          Math.random() * Math.PI,
+          Math.random() * Math.PI * 2,
+          (Math.random() * 0.9 + 0.1) * Math.PI * 0.1,
+          Math.random() * 0.9 + 0.1
+        );
+      };
+  
+      let pts = new Array(50000).fill().map(p => {
+        sizes.push(Math.random() * 1.5 + 0.5);
+        pushShift();
+        return new THREE.Vector3().randomDirection().multiplyScalar(Math.random() * 0.5 + 9.5);
+      });
+  
+      for (let i = 0; i < 100000; i++) {
+        let r = 10, R = 40;
+        let rand = Math.pow(Math.random(), 1.5);
+        let radius = Math.sqrt(R * R * rand + (1 - rand) * r * r);
+        pts.push(new THREE.Vector3().setFromCylindricalCoords(radius, Math.random() * 2 * Math.PI, (Math.random() - 0.5) * 2));
+        sizes.push(Math.random() * 1.5 + 0.5);
+        pushShift();
+      }
+  
+      let g = new THREE.BufferGeometry().setFromPoints(pts);
+      g.setAttribute("sizes", new THREE.Float32BufferAttribute(sizes, 1));
+      g.setAttribute("shift", new THREE.Float32BufferAttribute(shift, 4));
+      let m = new THREE.PointsMaterial({
+        size: 0.125,
+        transparent: true,
+        depthTest: false,
+        blending: THREE.AdditiveBlending,
+        onBeforeCompile: shader => {
+          shader.uniforms.time = gu.time;
+          shader.vertexShader = `
+            uniform float time;
+            attribute float sizes;
+            attribute vec4 shift;
+            varying vec3 vColor;
+            ${shader.vertexShader}
+          `.replace(
+            `gl_PointSize = size;`,
+            `gl_PointSize = size * sizes;`
+          ).replace(
+            `#include <color_vertex>`,
+            `#include <color_vertex>
+              float d = length(abs(position) / vec3(40., 10., 40));
+              d = clamp(d, 0., 1.);
+              vColor = mix(vec3(227., 155., 0.), vec3(100., 50., 255.), d) / 255.;
+            `
+          ).replace(
+            `#include <begin_vertex>`,
+            `#include <begin_vertex>
+              float t = time;
+              float moveT = mod(shift.x + shift.z * t, PI2);
+              float moveS = mod(shift.y + shift.z * t, PI2);
+              transformed += vec3(cos(moveS) * sin(moveT), cos(moveT), sin(moveS) * sin(moveT)) * shift.a;
+            `
+          );
+          shader.fragmentShader = `
+            varying vec3 vColor;
+            ${shader.fragmentShader}
+          `.replace(
+            `#include <clipping_planes_fragment>`,
+            `#include <clipping_planes_fragment>
+              float d = length(gl_PointCoord.xy - 0.5);
+            `
+          ).replace(
+            `vec4 diffuseColor = vec4( diffuse, opacity );`,
+            `vec4 diffuseColor = vec4( vColor, smoothstep(0.5, 0.1, d) );`
+          );
+        }
+      });
+  
+      let p = new THREE.Points(g, m);
+      p.rotation.order = "ZYX";
+      p.rotation.z = 0.2;
+      scene.add(p);
+  
+      let clock = new THREE.Clock();
+  
+      renderer.setAnimationLoop(() => {
+        controls.update();
+        let t = clock.getElapsedTime() * 0.5;
+        gu.time.value = t * Math.PI;
+        p.rotation.y = t * 0.05;
+        renderer.render(scene, camera);
+      });
+    </script>
+  </div>
+  <section style="height: 50vh; display: flex; justify-content: center; align-items: center;" id="galleryContent" style="display:none;" >
+    <div style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+                font-size: 300%; width: 80%; text-align: center; 
+                color: #fff; 
+                text-shadow: 0 0 10px rgb(188, 188, 212), 
+                             0 0 20px rgb(151, 151, 181), 
+                             0 0 40px rgb(177, 207, 207), 
+                             0 0 80px rgb(185, 200, 200);">
+      Yakin udah mainnya? Wkwk. Kalo gitu lanjut yuk ada sedikit lagi
+    </div>
+  </section>
+  
+  <div style="text-align: center; margin-bottom: 3%;" id="galleryContent" style="display:none;">
+    <a href="our-story2.html" 
+      style="display: inline-block; padding: 10px 20px; border: 2px solid white; border-radius: 30px; 
+             color: white; text-decoration: none; font-size: 1.2rem; 
+             background: rgba(255,255,255,0.15); transition: 0.3s;">
+      Yukkk!!
+    </a>
+  </div>
+  
+<br>
+<br>
+</body>
+
+</html>
+
+
+
+
+
+

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Play</title>
+  <link rel="icon" href="images/icon.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("./images/background.jpg") no-repeat center center/cover;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .page.active {
+      display: flex;
+      opacity: 1;
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2, p, button {
+    margin: 0 5%;
+    color: black; /* main text color */
+    font-weight: bolder;
+    font-size: 2.5em;
+    text-shadow: 1px 1px 3px white; /* soft white shadow */
+}
+
+
+    button {
+      width: 75vw;
+      max-width: 400px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: white;
+      color: black;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #f3f3f3;
+      transform: scale(1.05);
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      text-align: center;
+    }
+    .circle {
+      width: 80px;
+      height: 80px;
+      border: 5px dotted black;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.6; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .row img {
+      max-width: 150px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page 1: Password -->
+  <div class="page active" id="page1">
+    <h2>Eittss apa dulu passwordnya?👀</h2>
+    <input type="text" id="password" placeholder="Ketik di sini">
+    <button onclick="checkPassword()">Submit</button>
+    <p id="feedback"></p>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" id="page2">
+    <h2>Halo Lagi Rahmah</h2>
+    <button onclick="goToPage(3)">Hii</button>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page" id="page3">
+    <h2>Hayo penasaran gak kita mau ngapain?</h2>
+    <button onclick="goToPage(4)">Penasaran dongg</button>
+    <button onclick="goToPage(4)">Bangett</button>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page" id="page4">
+    <h2>Sebelumnya, ada yang mau kenalan nih. Katanya dia nanti mau nemenin main. Tau gak siapa?</h2>
+    <button onclick="goToPage(5)">Siapa??</button>
+    <button onclick="goToPage(5)">Kenalin dongg!!</button>
+  </div>
+
+  <!-- Page 5 (5s wait) -->
+  <div class="page" id="page5">
+    <h2>Bentar ya lagi dipanggilin dulu</h2>
+    <div class="circle"></div>
+  </div>
+
+  <!-- Page 6 -->
+  <div class="page" id="page6">
+    <div class="row">
+      <div><h2>Hai kak Rahmah, aku Nailong, salam kenal ya kak</h2></div>
+      <img src="./images/hai.jpg" alt="Hai">
+    </div>
+    <button onclick="goToPage(7)">Halo, salam kenal juga Nailonggg</button>
+  </div>
+
+  <!-- Page 7 -->
+  <div class="page" id="page7">
+    <div class="row">
+      <div><h2>Kaka tau gakk kita mau ngapain??</h2></div>
+      <img src="./images/asking.jpg" alt="Asking">
+    </div>
+    <button onclick="goToPage(8)">Gak tauu, kasi tau dongg</button>
+  </div>
+
+  <!-- Page 8 -->
+  <div class="page" id="page8">
+    <div class="row">
+      <div><h2>Kita mauuu... nyanyiii!!!</h2></div>
+      <img src="./images/sing.jpg" alt="Sing">
+    </div>
+    <button onclick="goToPage(9)">Wahhh! Ayukkk!</button>
+  </div>
+
+  <!-- Page 9 -->
+  <div class="page" id="page9">
+    <div class="row">
+      <div><h2>Jangan lupa volumenya digedein dan minum dulu biar enak yaaa, siapp??</h2></div>
+      <img src="./images/laugh.jpg" alt="Laugh">
+    </div>
+    <button onclick="location.href='lets-play1.html'">Siappp let's goo</button>
+  </div>
+
+  <script>
+    function goToPage(num) {
+      document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+        p.style.display = "none";
+      });
+      const target = document.getElementById('page' + num);
+      target.style.display = "flex";
+      setTimeout(() => target.classList.add('active'), 50);
+      if (num === 5) {
+        setTimeout(() => goToPage(6), 5000); // auto after 5s
+      }
+    }
+
+    function checkPassword() {
+      const input = document.getElementById('password').value.trim().toLowerCase();
+      const feedback = document.getElementById('feedback');
+      if (input === "cinta") {
+        feedback.textContent = "Yeay benerr 🎉";
+        setTimeout(() => goToPage(2), 2000);
+      } else {
+        feedback.textContent = "Wlee salah 😛";
+      }
+    }
+  </script>
+</body>
+</html>

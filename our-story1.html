@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Our Story — Start</title>
+  <link rel="icon" href="./images/pavicon.png">
+  <link href="templatemo-3d-coverflow.css" rel="stylesheet">
+  <style>
+    body, html {
+      margin:0; padding:0;
+      height:100%; width:100%;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+    }
+
+    .landing {
+      width:100%;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      position: relative;
+      text-align:center;
+      color: #fff;
+      background: url("./images/landing.jpg") no-repeat center center/cover;
+    }
+
+    .landing-card {
+      max-width:720px;
+      width:100%;
+      padding:28px;
+      border-radius:18px;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      z-index: 10;
+    }
+
+    h1 { font-size:2.4rem; margin-bottom:8px; }
+    h2 { font-size:1.6rem; margin-bottom:16px; }
+    p { margin-bottom:18px; opacity:0.95; font-size:1.1rem; }
+    .btn { 
+      display:inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid white;
+      color: white;
+      padding:10px 20px;
+      border-radius:30px;
+      cursor:pointer;
+      margin:8px;
+      font-size:1rem;
+      transition:0.3s;
+    }
+    .btn:hover { background: rgba(255,255,255,0.3); }
+    .hidden { display:none; }
+    ul.rules {
+      text-align:left;
+      margin: 20px auto;
+      max-width: 500px;
+      font-size:1rem;
+    }
+    ul.rules li {
+      margin-bottom:10px;
+    }
+
+    /* Fade animations */
+    .fade-in { animation: fadeIn 0.6s ease forwards; }
+    .fade-out { animation: fadeOut 0.6s ease forwards; }
+    @keyframes fadeIn { from { opacity:0; transform:scale(0.96);} to {opacity:1; transform:scale(1);} }
+    @keyframes fadeOut { from { opacity:1; transform:scale(1);} to {opacity:0; transform:scale(0.96);} }
+
+    /* Countdown screen */
+    #countdownText { font-size: 1.6rem; margin-bottom: 16px; }
+    #countdownNumber { font-size:4rem; margin-top:20px; }
+
+  </style>
+</head>
+<body>
+  <section class="landing">
+    <div class="landing-card">
+
+      <!-- Intro -->
+      <div id="startScreen">
+        <h1>Halo lagi Rahmah <br>🤗🤗🤗</h1>
+        <button id="startBtn" class="btn">Haii👋👋</button>
+      </div>
+
+      <!-- Rules -->
+      <div id="rules" class="hidden">
+        <h2>Sebelum mulai, mau ngingetin beberapa hal lagi yaa:</h2>
+        <ul class="rules">
+          <li>🔊 Naikkin volumenya atau pake headphone dongg biar lebih asyiqq.</li>
+          <li>🌇 Di tempat yang sunyi dan redup akan lebih khidmat lhoo hehe.</li>
+          <li>🤗 Pastiin suasana hati lagi seneng yaa, gak lagi laper ato kesel xixi.</li>
+          <li>✨ Nikmatin dan resapin kata-katanya okey, pelan-pelan dan bernada aja bacanya.</li>
+          <li>🚫 Jangan geser atau scroll sebelum diminta yaa.</li>
+        </ul>
+        <p><b>Udah Siapp??</b></p>
+        <button id="finalBtn" class="btn"><b>Gasss Meluncurr🚀</b></button>
+      </div>
+
+      <!-- Countdown -->
+      <div id="countdownScreen" class="hidden">
+        <h2 id="countdownText">GET READY! IT WILL SOON BEGIN IN:</h2>
+        <p id="countdownNumber">3</p>
+        <h2 id="countdownEndText" class="hidden">Enjoy… 🎉</h2>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const startBtn = document.getElementById('startBtn');
+    const finalBtn = document.getElementById('finalBtn');
+
+    // Start → Rules
+    startBtn.addEventListener('click', () => {
+      document.getElementById('startScreen').classList.add('fade-out');
+      setTimeout(() => {
+        document.getElementById('startScreen').classList.add('hidden');
+        document.getElementById('startScreen').classList.remove('fade-out');
+        document.getElementById('rules').classList.remove('hidden');
+        document.getElementById('rules').classList.add('fade-in');
+      }, 600);
+    });
+
+    // Rules → Countdown → Gallery
+    finalBtn.addEventListener('click', () => {
+      const rulesScreen = document.getElementById('rules');
+      const countdownScreen = document.getElementById('countdownScreen');
+
+      rulesScreen.classList.add('fade-out');
+      setTimeout(() => {
+        rulesScreen.classList.add('hidden');
+        rulesScreen.classList.remove('fade-out');
+
+        countdownScreen.classList.remove('hidden');
+        countdownScreen.classList.add('fade-in');
+
+        let count = 2;
+        const countdownNumber = document.getElementById('countdownNumber');
+
+        const interval = setInterval(() => {
+          countdownNumber.textContent = count;
+          countdownNumber.classList.remove('fade-in');
+          void countdownNumber.offsetWidth;
+          countdownNumber.classList.add('fade-in');
+
+          count--;
+          if(count < 0){
+            clearInterval(interval);
+            countdownScreen.classList.remove('fade-in');
+            countdownScreen.classList.add('fade-out');
+            setTimeout(() => {
+              countdownScreen.classList.add('hidden');
+              countdownScreen.classList.remove('fade-out');
+              sessionStorage.setItem('fromLanding','1');
+              window.location.href = 'our-story.html?autoplay=1';
+            }, 600);
+          }
+        }, 1000);
+      }, 600);
+    });
+  </script>
+</body>
+</html>

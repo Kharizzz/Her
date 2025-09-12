@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Only For You</title>
+  <link rel="icon" href="images/pav1.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #FFD54F, #FF4081); /* yellow → pink */
+      color: white;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .page.active {
+      display: flex;
+      opacity: 1;
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 {
+      margin: 0;
+      font-size: 3rem; /* bigger intro text */
+    }
+    h2 {
+      margin: 0;
+      font-size: 2.2rem; /* bigger question text */
+    }
+    button {
+      width: 75vw;
+      max-width: 400px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: white;
+      color: #FF4081;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #f3f3f3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Page 1 -->
+  <div class="page active" id="page1">
+    <h1>Halo Rahmah <br>😆😆😆<br></h1>
+    <button onclick="goToPage(2)">Haii👋👋</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" id="page2">
+    <h2>What do you want to see today? <br>😁😁😁</h2>
+    <button onclick="location.href='our-story1.html'">Our Story✌</button>
+    <button onclick="location.href='let\'s-play.html'">The new thing you told me😊</button>
+  </div>
+
+  <script>
+    function goToPage(num) {
+      document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+        p.style.display = "none";
+      });
+      const target = document.getElementById('page' + num);
+      target.style.display = "flex";
+      setTimeout(() => target.classList.add('active'), 50); // trigger fade-in
+    }
+  </script>
+</body>
+</html>
