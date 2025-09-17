@@ -15,7 +15,7 @@
 body {
   margin: 0;
   font-family: "Inter", system-ui, sans-serif;
-  background: url("./images/background.jpg") no-repeat center center fixed;
+  background: url("./images/background.jpg") repeat center center fixed;
   background-size: cover;
   color: black; /* or white, depending on readability */
 }
@@ -100,6 +100,11 @@ section, .block {
     align-items:center;
     margin-top:40px;
   }
+  .block {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
   .end-buttons button{
     width:75vw;
     max-width:400px;
@@ -121,160 +126,158 @@ section, .block {
     <audio id="bgAudio" src="./images/bad.mp3" preload="auto" playsinline></audio>
 <main>
   <section class="hero" style="height: 100vh;">
-    <h1>Yukk scroll ikutin lagunya! Happy Singing😆😆😆</h1>
+    <h1>Yukk scroll ikutin lagunya! Happy Singing <br>😆😆😆</h1>
   </section>
 
   <!-- Verse 1 -->
-  <section class="block">
-    <img class="media reveal img" src="./images/15.jpg" alt="">
-    <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/16.jpg" alt="">
-    <div class="lyric reveal text">You're the only one who makes me laugh</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/17.jpg" alt="">
-    <div class="lyric reveal text">So how can my day… be bad?</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/18.jpg" alt="">
-    <div class="lyric reveal text">It's a day for you</div>
-  </section>
+<section class="block">
+  <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
+  <img class="media reveal img" src="./images/15.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">You're the only one who makes me laugh</div>
+  <img class="media reveal img" src="./images/16.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">So how can my day… be bad?</div>
+  <img class="media reveal img" src="./images/17.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">It's a day for you</div>
+  <img class="media reveal img" src="./images/18.jpg" alt="">
+</section>
 
-  <!-- Verse 2 -->
-  <section class="block">
-    <img class="media reveal img" src="./images/19.jpg" alt="">
-    <div class="lyric reveal text">Lately, life's so boring</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/20.jpg" alt="">
-    <div class="lyric reveal text">I've been watching Netflix all day long</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/21.jpg" alt="">
-    <div class="lyric reveal text">I thought there would be… no things left to watch</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/22.jpg" alt="">
-    <div class="lyric reveal text">So I let myself out</div>
-  </section>
+<!-- Verse 2 -->
+<section class="block">
+  <div class="lyric reveal text">Lately, life's so boring</div>
+  <img class="media reveal img" src="./images/19.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">I've been watching Netflix all day long</div>
+  <img class="media reveal img" src="./images/20.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">I thought there would be… no things left to watch</div>
+  <img class="media reveal img" src="./images/21.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">So I let myself out</div>
+  <img class="media reveal img" src="./images/22.jpg" alt="">
+</section>
 
-  <!-- Verse 3 -->
-  <section class="block">
-    <img class="media reveal img" src="./images/23.jpg" alt="">
-    <div class="lyric reveal text">When I went to the park</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/24.jpg" alt="">
-    <div class="lyric reveal text">I recognized you at a glance</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/25.jpg" alt="">
-    <div class="lyric reveal text">Face to face, we just smiled</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/26.jpg" alt="">
-    <div class="lyric reveal text">We already know that we'll be together</div>
-  </section>
+<!-- Verse 3 -->
+<section class="block">
+  <div class="lyric reveal text">When I went to the park</div>
+  <img class="media reveal img" src="./images/23.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">I recognized you at a glance</div>
+  <img class="media reveal img" src="./images/24.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">Face to face, we just smiled</div>
+  <img class="media reveal img" src="./images/25.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">We already know that we'll be together</div>
+  <img class="media reveal img" src="./images/26.jpg" alt="">
+</section>
 
-  <!-- Chorus -->
-  <section class="block">
-    <img class="media reveal img" src="./images/27.jpg" alt="">
-    <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/28.jpg" alt="">
-    <div class="lyric reveal text">You're the only one who makes me laugh</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/29.jpg" alt="">
-    <div class="lyric reveal text">So how can my day… be bad?</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/30.jpg" alt="">
-    <div class="lyric reveal text">It's a day for you</div>
-  </section>
+<!-- Chorus -->
+<section class="block">
+  <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
+  <img class="media reveal img" src="./images/27.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">You're the only one who makes me laugh</div>
+  <img class="media reveal img" src="./images/28.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">So how can my day… be bad?</div>
+  <img class="media reveal img" src="./images/29.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">It's a day for you</div>
+  <img class="media reveal img" src="./images/30.jpg" alt="">
+</section>
 
-  <!-- Verse 4 -->
-  <section class="block">
-    <img class="media reveal img" src="./images/31.jpg" alt="">
-    <div class="lyric reveal text">Coffee in the morning</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/32.jpg" alt="">
-    <div class="lyric reveal text">You and the sun</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/33.jpg" alt="">
-    <div class="lyric reveal text">There's a brown hue in your eyes</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/34.jpg" alt="">
-    <div class="lyric reveal text">How pretty it is, I think I'm in love</div>
-  </section>
+<!-- Verse 4 -->
+<section class="block">
+  <div class="lyric reveal text">Coffee in the morning</div>
+  <img class="media reveal img" src="./images/31.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">You and the sun</div>
+  <img class="media reveal img" src="./images/32.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">There's a brown hue in your eyes</div>
+  <img class="media reveal img" src="./images/33.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">How pretty it is, I think I'm in love</div>
+  <img class="media reveal img" src="./images/34.jpg" alt="">
+</section>
 
-  <!-- Instrument -->
-  <section class="block">
-    <img class="media reveal img" src="./images/35.gif" alt="">
-    <div class="lyric reveal text">(Instrument...)</div>
-  </section>
+<!-- Instrument -->
+<section class="block">
+  <div class="lyric reveal text">(Instrument...)</div>
+  <img class="media reveal img" src="./images/35.gif" alt="">
+</section>
 
-  <!-- Verse 5 -->
-  <section class="block">
-    <img class="media reveal img" src="./images/36.jpg" alt="">
-    <div class="lyric reveal text">When I went to the park</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/37.jpg" alt="">
-    <div class="lyric reveal text">I recognized you at a glance</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/38.jpg" alt="">
-    <div class="lyric reveal text">Face to face, we smiled</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/39.jpg" alt="">
-    <div class="lyric reveal text">And I finally held your hands</div>
-  </section>
+<!-- Verse 5 -->
+<section class="block">
+  <div class="lyric reveal text">When I went to the park</div>
+  <img class="media reveal img" src="./images/36.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">I recognized you at a glance</div>
+  <img class="media reveal img" src="./images/37.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">Face to face, we smiled</div>
+  <img class="media reveal img" src="./images/38.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">And I finally held your hands</div>
+  <img class="media reveal img" src="./images/39.jpg" alt="">
+</section>
 
-  <!-- Chorus -->
-  <section class="block">
-    <img class="media reveal img" src="./images/40.jpg" alt="">
-    <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/41.jpg" alt="">
-    <div class="lyric reveal text">You're the only one who makes me laugh</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/42.jpg" alt="">
-    <div class="lyric reveal text">So how can my day… be bad?</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/43.jpg" alt="">
-    <div class="lyric reveal text">It's a day for you</div>
-  </section>
+<!-- Chorus -->
+<section class="block">
+  <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
+  <img class="media reveal img" src="./images/40.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">You're the only one who makes me laugh</div>
+  <img class="media reveal img" src="./images/41.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">So how can my day… be bad?</div>
+  <img class="media reveal img" src="./images/42.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">It's a day for you</div>
+  <img class="media reveal img" src="./images/43.jpg" alt="">
+</section>
 
-  <!-- Outro -->
-  <section class="block">
-    <img class="media reveal img" src="./images/44.jpg" alt="">
-    <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/45.jpg" alt="">
-    <div class="lyric reveal text">You're the only one who gives me love</div>
-  </section>
-  <section class="block">
-    <img class="media reveal img" src="./images/46.jpg" alt="">
-    <div class="lyric reveal text">So how can my day… be bad?</div>
-  </section>
-  
-
-  <section class="block">
-    <img class="media reveal img" src="./images/47.jpg" alt="">
-    <div class="lyric reveal text">It's a day for you</div>
-  </section>
+<!-- Outro -->
+<section class="block">
+  <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
+  <img class="media reveal img" src="./images/44.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">You're the only one who gives me love</div>
+  <img class="media reveal img" src="./images/45.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">So how can my day… be bad?</div>
+  <img class="media reveal img" src="./images/46.jpg" alt="">
+</section>
+<section class="block">
+  <div class="lyric reveal text">It's a day for you</div>
+  <img class="media reveal img" src="./images/47.jpg" alt="">
+</section>
 
     <section class="hero" style="height: 100vh;">
     <h1 style="color: yellow; text-shadow: 2px 2px 4px black;">Yeayyy udahh, bagus banget si suara kakakkk😍😍😍</h1>
