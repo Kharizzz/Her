@@ -33,14 +33,20 @@
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    h1, h2, p, button {
-    margin: 0 5%;
-    color: black; /* main text color */
-    font-weight: bolder;
-    font-size: 2.5em;
-    text-shadow: 1px 1px 3px white; /* soft white shadow */
-}
-
+    h1, h2, p {
+      margin: 0 5%;
+      color: white;
+      font-weight: bolder;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px black;
+    }
+    .nailong {
+        margin: 0 5%;
+      color: yellow;
+      font-weight: bolder;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px black;
+    }
 
     button {
       width: 75vw;
@@ -69,7 +75,7 @@
     .circle {
       width: 80px;
       height: 80px;
-      border: 5px dotted black;
+      border: 5px dotted white;
       border-radius: 50%;
       animation: pulse 1.5s infinite;
     }
@@ -78,17 +84,15 @@
       50% { transform: scale(1.2); opacity: 0.6; }
       100% { transform: scale(1); opacity: 1; }
     }
-    .row {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-    .row img {
-      max-width: 150px;
+    img {
+      height: 30vh;
+      object-fit: contain;
       border-radius: 12px;
+    }
+    #countdown {
+      font-size: 3em;
+      font-weight: bold;
+      color: yellow;
     }
   </style>
 </head>
@@ -103,64 +107,62 @@
 
   <!-- Page 2 -->
   <div class="page" id="page2">
-    <h2>Halo Lagi Rahmah</h2>
-    <button onclick="goToPage(3)">Hii</button>
+    <h2>Halo Lagi Rahmah <br>😃😃😃</h2>
+    <button onclick="goToPage(3)">Hii👋</button>
   </div>
 
   <!-- Page 3 -->
   <div class="page" id="page3">
-    <h2>Hayo penasaran gak kita mau ngapain?</h2>
-    <button onclick="goToPage(4)">Penasaran dongg</button>
-    <button onclick="goToPage(4)">Bangett</button>
+    <h2>Hayo penasaran gak kita mau ngapain? <br>😆😆😆</h2>
+    <button onclick="goToPage(4)">Penasaran dongg😊</button>
+    <button onclick="goToPage(4)">Bangett😣</button>
   </div>
 
   <!-- Page 4 -->
   <div class="page" id="page4">
-    <h2>Sebelumnya, ada yang mau kenalan nih. Katanya dia nanti mau nemenin main. Tau gak siapa?</h2>
-    <button onclick="goToPage(5)">Siapa??</button>
-    <button onclick="goToPage(5)">Kenalin dongg!!</button>
+    <h2>Sebelumnya, ada yang mau kenalan nih. Katanya dia nanti mau nemenin main. Tau gak siapa? <br>🤭🤭🤭</h2>
+    <button onclick="goToPage(5)">Siapa??🤔</button>
+    <button onclick="goToPage(5)">Kenalin dongg!!🤩</button>
   </div>
 
   <!-- Page 5 (5s wait) -->
   <div class="page" id="page5">
-    <h2>Bentar ya lagi dipanggilin dulu</h2>
+    <h2>Bentar ya lagi dipanggilin dulu xixixi😁</h2>
     <div class="circle"></div>
   </div>
 
   <!-- Page 6 -->
   <div class="page" id="page6">
-    <div class="row">
-      <div><h2>Hai kak Rahmah, aku Nailong, salam kenal ya kak</h2></div>
-      <img src="./images/hai.jpg" alt="Hai">
-    </div>
-    <button onclick="goToPage(7)">Halo, salam kenal juga Nailonggg</button>
+    <h2 class="nailong">Hai kak Rahmah, aku Nailong, salam kenal ya kak🤗</h2>
+    <img src="./images/11.jpg" alt="Hai">
+    <button onclick="goToPage(7)">Wah haloo, salam kenal juga Nailonggg😍</button>
   </div>
 
   <!-- Page 7 -->
   <div class="page" id="page7">
-    <div class="row">
-      <div><h2>Kaka tau gakk kita mau ngapain??</h2></div>
-      <img src="./images/asking.jpg" alt="Asking">
-    </div>
-    <button onclick="goToPage(8)">Gak tauu, kasi tau dongg</button>
+    <h2 class="nailong">Kaka tau gakk kita mau ngapain??😃</h2>
+    <img src="./images/12.png" alt="Asking">
+    <button onclick="goToPage(8)">Gak tauu, kasi tau dongg😄</button>
   </div>
 
   <!-- Page 8 -->
   <div class="page" id="page8">
-    <div class="row">
-      <div><h2>Kita mauuu... nyanyiii!!!</h2></div>
-      <img src="./images/sing.jpg" alt="Sing">
-    </div>
-    <button onclick="goToPage(9)">Wahhh! Ayukkk!</button>
+    <h2 class="nailong">Kita mauuu... nyanyiii!!!😁</h2>
+    <img src="./images/13.jpg" alt="Sing">
+    <button onclick="goToPage(9)">Wahhh! Ayukkk!😆</button>
   </div>
 
   <!-- Page 9 -->
   <div class="page" id="page9">
-    <div class="row">
-      <div><h2>Jangan lupa volumenya digedein dan minum dulu biar enak yaaa, siapp??</h2></div>
-      <img src="./images/laugh.jpg" alt="Laugh">
-    </div>
-    <button onclick="location.href='lets-play1.html'">Siappp let's goo</button>
+    <h2 class="nailong">Jangan lupa volumenya digedein dan minum dulu biar enak yaaa, xixix, siapp??</h2>
+    <img src="./images/14.jpg" alt="Laugh">
+    <button onclick="goToPage(10)">Siappp let's goo🎤</button>
+  </div>
+
+  <!-- Page 10 (Countdown before redirect) -->
+  <div class="page" id="page10">
+    <h2 class="nailong">Kita akan mulai dalam:</h2>
+    <p id="countdown" class="nailong">5</p>
   </div>
 
   <script>
@@ -172,8 +174,25 @@
       const target = document.getElementById('page' + num);
       target.style.display = "flex";
       setTimeout(() => target.classList.add('active'), 50);
+
       if (num === 5) {
-        setTimeout(() => goToPage(6), 5000); // auto after 5s
+        setTimeout(() => goToPage(6), 4000); // auto after 5s
+      }
+
+      if (num === 10) {
+        let countdown = 5;
+        const counter = document.getElementById("countdown");
+        const interval = setInterval(() => {
+          countdown--;
+          counter.textContent = countdown;
+          if (countdown === 0) {
+            clearInterval(interval);
+            // trigger autoplay before redirect
+            const audio = new Audio("./music/intro.mp3");
+            audio.play().catch(()=>{});
+            window.location.href = "let\'s-sing.html";
+          }
+        }, 1000);
       }
     }
 
