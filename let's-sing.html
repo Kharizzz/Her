@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Let's Sing</title>
+<link rel="icon" href="images/icon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --accent:#111827;
+  }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: url("./images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: black; /* or white, depending on readability */
+}
+
+section, .block {
+  background: transparent !important; /* ensure no section hides the body bg */
+}
+
+
+  main{
+    max-width:900px;
+    margin:0 auto;
+    padding:36px 20px 120px;
+  }
+
+  .hero{
+    min-height:30vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }
+  .hero h1{
+    margin: 0 5%;
+      color: white;
+      font-weight: bolder;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px black;
+  }
+
+  .block{
+    margin:28px 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+  }
+
+  .lyric{
+    width:100%;
+    min-height:25vh;
+    max-height:35vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:12px 20px;
+    box-sizing:border-box;
+    text-align:center;
+    font-family:"Playfair Display",serif;
+    font-size:clamp(1.25rem,3.2vw,2rem);
+    font-weight:700;
+    line-height:1.2;
+    background:rgba(255,255,255,0.55);
+    border-radius:14px;
+    box-shadow:0 6px 20px rgba(17,24,39,0.06);
+  }
+
+  .media{
+    width:auto;
+    max-width:100%;
+    height:auto;
+    min-height:25vh;
+    max-height:35vh;
+    border-radius:12px;
+    object-fit:contain;
+    box-shadow:0 10px 30px rgba(2,6,23,0.08);
+  }
+
+  /* reveal animations */
+  .reveal{opacity:0;transform:translateX(0);transition:transform .7s,opacity .7s;}
+  .reveal.text{transform:translateX(-36px);}
+  .reveal.img{transform:translateX(36px);}
+  .in-view{opacity:1;transform:translateX(0);}
+
+  /* ending buttons */
+  .end-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    align-items:center;
+    margin-top:40px;
+  }
+  .end-buttons button{
+    width:75vw;
+    max-width:400px;
+    padding:14px 20px;
+    font-size:1.2rem;
+    font-weight:600;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:#f1f1f1;
+    color:black;
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+    transition:transform .2s;
+  }
+  .end-buttons button:hover{transform:scale(1.05);}
+</style>
+</head>
+<body>
+    <audio id="bgAudio" src="./images/bad.mp3" preload="auto" playsinline></audio>
+<main>
+  <section class="hero" style="height: 100vh;">
+    <h1>Yukk scroll ikutin lagunya! Happy Singing😆😆😆</h1>
+  </section>
+
+  <!-- Verse 1 -->
+  <section class="block">
+    <img class="media reveal img" src="./images/15.jpg" alt="">
+    <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/16.jpg" alt="">
+    <div class="lyric reveal text">You're the only one who makes me laugh</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/17.jpg" alt="">
+    <div class="lyric reveal text">So how can my day… be bad?</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/18.jpg" alt="">
+    <div class="lyric reveal text">It's a day for you</div>
+  </section>
+
+  <!-- Verse 2 -->
+  <section class="block">
+    <img class="media reveal img" src="./images/19.jpg" alt="">
+    <div class="lyric reveal text">Lately, life's so boring</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/20.jpg" alt="">
+    <div class="lyric reveal text">I've been watching Netflix all day long</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/21.jpg" alt="">
+    <div class="lyric reveal text">I thought there would be… no things left to watch</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/22.jpg" alt="">
+    <div class="lyric reveal text">So I let myself out</div>
+  </section>
+
+  <!-- Verse 3 -->
+  <section class="block">
+    <img class="media reveal img" src="./images/23.jpg" alt="">
+    <div class="lyric reveal text">When I went to the park</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/24.jpg" alt="">
+    <div class="lyric reveal text">I recognized you at a glance</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/25.jpg" alt="">
+    <div class="lyric reveal text">Face to face, we just smiled</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/26.jpg" alt="">
+    <div class="lyric reveal text">We already know that we'll be together</div>
+  </section>
+
+  <!-- Chorus -->
+  <section class="block">
+    <img class="media reveal img" src="./images/27.jpg" alt="">
+    <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/28.jpg" alt="">
+    <div class="lyric reveal text">You're the only one who makes me laugh</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/29.jpg" alt="">
+    <div class="lyric reveal text">So how can my day… be bad?</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/30.jpg" alt="">
+    <div class="lyric reveal text">It's a day for you</div>
+  </section>
+
+  <!-- Verse 4 -->
+  <section class="block">
+    <img class="media reveal img" src="./images/31.jpg" alt="">
+    <div class="lyric reveal text">Coffee in the morning</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/32.jpg" alt="">
+    <div class="lyric reveal text">You and the sun</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/33.jpg" alt="">
+    <div class="lyric reveal text">There's a brown hue in your eyes</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/34.jpg" alt="">
+    <div class="lyric reveal text">How pretty it is, I think I'm in love</div>
+  </section>
+
+  <!-- Instrument -->
+  <section class="block">
+    <img class="media reveal img" src="./images/35.gif" alt="">
+    <div class="lyric reveal text">(Instrument...)</div>
+  </section>
+
+  <!-- Verse 5 -->
+  <section class="block">
+    <img class="media reveal img" src="./images/36.jpg" alt="">
+    <div class="lyric reveal text">When I went to the park</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/37.jpg" alt="">
+    <div class="lyric reveal text">I recognized you at a glance</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/38.jpg" alt="">
+    <div class="lyric reveal text">Face to face, we smiled</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/39.jpg" alt="">
+    <div class="lyric reveal text">And I finally held your hands</div>
+  </section>
+
+  <!-- Chorus -->
+  <section class="block">
+    <img class="media reveal img" src="./images/40.jpg" alt="">
+    <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/41.jpg" alt="">
+    <div class="lyric reveal text">You're the only one who makes me laugh</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/42.jpg" alt="">
+    <div class="lyric reveal text">So how can my day… be bad?</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/43.jpg" alt="">
+    <div class="lyric reveal text">It's a day for you</div>
+  </section>
+
+  <!-- Outro -->
+  <section class="block">
+    <img class="media reveal img" src="./images/44.jpg" alt="">
+    <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/45.jpg" alt="">
+    <div class="lyric reveal text">You're the only one who gives me love</div>
+  </section>
+  <section class="block">
+    <img class="media reveal img" src="./images/46.jpg" alt="">
+    <div class="lyric reveal text">So how can my day… be bad?</div>
+  </section>
+  
+
+  <section class="block">
+    <img class="media reveal img" src="./images/47.jpg" alt="">
+    <div class="lyric reveal text">It's a day for you</div>
+  </section>
+
+    <section class="hero" style="height: 100vh;">
+    <h1 style="color: yellow; text-shadow: 2px 2px 4px black;">Yeayyy udahh, bagus banget si suara kakakkk😍😍😍</h1>
+    <img src="./images/48.jpg" alt="" style="align-items: center; justify-content: center; width: 50vw; max-width: 200px; border-radius: 15px;">
+    <h1 style="color: yellow; text-shadow: 2px 2px 4px black;">Nah sekarang mau ngapain nich?😃</h1>
+    <div class="end-buttons" style="margin: 0%;">
+    <button onclick="restartSong()">Mau nyanyi lagi duluu😆</button>
+    <button onclick="window.location.href='let\'s-sing2.html'">Mau lanjut deh, penasaran ada apa🤔</button>
+  </div>
+  </section>
+  
+
+  
+</main>
+
+<script>
+  // reveal on scroll
+  const reveals=document.querySelectorAll('.reveal');
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in-view');}
+    });
+  },{threshold:0.25});
+  reveals.forEach(r=>obs.observe(r));
+  function restartSong() {
+  // Scroll smoothly back to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // Restart the audio
+  const audio = document.querySelector("audio");
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play();
+  }
+}
+  // autoplay bg audio
+  const audio=document.getElementById('bgAudio');
+  window.addEventListener('load',()=>{audio.play().catch(()=>{});});
+</script>
+</body>
+</html>
