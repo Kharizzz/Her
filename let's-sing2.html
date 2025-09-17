@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Play</title>
+  <link rel="icon" href="images/icon.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("./images/background.jpg") no-repeat center center fixed;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .page.active {
+      display: flex;
+      opacity: 1;
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2, p {
+      margin: 0 5%;
+      color: white;
+      font-weight: bolder;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px black;
+    }
+
+    .nailong {
+        margin: 0 5%;
+      color: yellow;
+      font-weight: bolder;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px black;
+    }
+    button {
+      width: 75vw;
+      max-width: 400px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: white;
+      color: black;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #f3f3f3;
+      transform: scale(1.05);
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      text-align: center;
+    }
+    .circle {
+      width: 80px;
+      height: 80px;
+      border: 5px dotted black;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.2); opacity: 0.6; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    img {
+      height: 30vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+    #countdown {
+      font-size: 3em;
+      font-weight: bold;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <!-- Previous pages (1-10) remain the same -->
+
+  <!-- Page 11 -->
+  <div class="page active" id="page11" >
+    <h2 class="nailong">Haiii xixixi gimana tadi asik gakk? 😆🎶</h2>
+    <img src="./images/49.jpg" alt="Asik">
+    <button onclick="goToPage(12)">Asikk bangauuu 🦢</button>
+    <button onclick="goToPage(12)">Iyaa seruuu 🤩</button>
+  </div>
+
+  <!-- Page 12 -->
+  <div class="page" id="page12">
+    <h2 class="nailong">Yeayy syukur dehh, yauda kalo gitu aku pergi dulu yaa 👋</h2>
+    <img src="./images/50.jpg" alt="Bye">
+    <button onclick="goToPage(13)">Eh kamu mau ke mana nailong?? 🤔</button>
+    <button onclick="goToPage(13)">Nailong kok kamu pergiii? 😢</button>
+  </div>
+
+  <!-- Page 13 -->
+  <div class="page" id="page13">
+    <h2 class="nailong">Ya pergi aja yuhuu byeee 👋😝</h2>
+    <img src="./images/51.gif" alt="Bye">
+    <button onclick="goToPage(14)">Ishh yauda bye nailong 😤</button>
+    <button onclick="goToPage(14)">hush hush pergi sana 😆</button>
+  </div>
+
+  <!-- Page 14 -->
+  <div class="page" id="page14">
+    <h2>Yah nailongnya udah pergi ya wkwk 🤭, yauda biarin aja kita lanjut dulu yu 🚀</h2>
+    <button onclick="goToPage(15)">Iya biarin aja 😅</button>
+    <button onclick="goToPage(15)">Yu lanjut 💪</button>
+  </div>
+
+  <!-- Page 15 -->
+  <div class="page" id="page15">
+    <h2>Nah sekarang penasaran gak sama kadonya?? 🎁</h2>
+    <button onclick="goToPage(16)">Penasaran dongg 😍</button>
+    <button onclick="goToPage(16)">Bangett 🤩</button>
+  </div>
+
+  <!-- Page 16 -->
+  <div class="page" id="page16">
+    <h2>Xixixi okeyy 😀 kalo gitu udah siap kann buat liat isinya? 🎉</h2>
+    <button onclick="goToPage(17)">Siapp! 🙌</button>
+  </div>
+
+  <!-- Page 17 (Countdown 3s) -->
+  <div class="page" id="page17">
+    <h2>Yeay kita hitung yaaa:</h2>
+    <p id="countdown2">5</p>
+  </div>
+
+  <!-- Page 18 (Gift + music) -->
+  <div class="page" id="page18">
+    <h2>Yukk dibuka, dibaca dan dimainin dulu hadiahnya ya!🎁😆. <br> Kalo udah kita lanjut sedikit lagi👇</h2>
+    <img src="./images/52.gif" alt="Gift">
+    <button onclick="goToPage(19)">Udah nihh yuk lanjut 🚀</button>
+  </div>
+
+  <!-- Page 19 -->
+  <div class="page" id="page19">
+    <h2>Yeayy udahh 😍, gimanaa suka ga sama lagu dan kadonya? 🎶</h2>
+    <button onclick="goToPage(20)">sukakk 😁</button>
+    <button onclick="goToPage(20)">suka banget 🥰</button>
+  </div>
+
+  <!-- Page 20 -->
+  <div class="page" id="page20">
+    <h2>Beneran suka? 🤔 Kalo gitu coba dong kasih rating dari 1-10 hehe ✨</h2>
+    <div id="rating-buttons" class="buttons"></div>
+    <p id="rating-msg" style="display:none;">oopss! gabisa dipencet yah? 🤭👇</p>
+    <button id="rating-next" style="display:none;" onclick="goToPage(21)">iya nihh 😅</button>
+  </div>
+
+  <!-- Page 21 -->
+  <div class="page" id="page21">
+    <h2>yaudah kita ganti cara rating-nya ya? 😆</h2>
+    <button onclick="goToPage(22)">okee, gimana? 🤔</button>
+  </div>
+
+  <!-- Page 22 -->
+  <div class="page" id="page22">
+    <h2>(baca dulu ampe abis ya) <br>Caranya adalah: <br> 1. Pencet tombol putih di bawah <br> 2. Kirim pesan yang udah disiapin <br> 3. Kasih stiker nailong sebanyak 1-10 sesuai ratingnya😁</h2>
+    <button onclick="window.open('https://wa.me/6285811176748?text=Anyeongg%20kharis%20%3A3%20rating-nya%20adalah...', '_blank')">Yuk rating ✍
+  </div>
+
+  <audio id="bgMusic" src="./images/mine.mp3" loop></audio>
+
+  <script>
+    let bgMusic = document.getElementById("bgMusic");
+
+    function goToPage(num) {
+      document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+        p.style.display = "none";
+      });
+      const target = document.getElementById('page' + num);
+      if (!target) return;
+      target.style.display = "flex";
+      setTimeout(() => target.classList.add('active'), 50);
+
+      if (num === 17) {
+        let countdown = 5;
+        const counter = document.getElementById("countdown2");
+        const interval = setInterval(() => {
+          countdown--;
+          counter.textContent = countdown;
+          if (countdown === 0) {
+            clearInterval(interval);
+            goToPage(18);
+            bgMusic.play().catch(()=>{});
+          }
+        }, 1000);
+      }
+
+      if (num === 20) {
+        // Create rating buttons 1-10 with emojis
+        const container = document.getElementById("rating-buttons");
+        container.innerHTML = "";
+        const emojis = ["😒","😕","😐","🙂","😃","😄","😁","😆","🤩","🥳"];
+        for (let i=1; i<=10; i++) {
+          const btn = document.createElement("button");
+          btn.textContent = i + " " + emojis[i-1];
+          container.appendChild(btn);
+        }
+        setTimeout(()=>{
+          document.getElementById("rating-msg").style.display="block";
+          document.getElementById("rating-next").style.display="inline-block";
+          document.getElementById("rating-next").style.background="white";
+          document.getElementById("rating-next").style.marginBottom="5%";
+        },7000);
+      }
+    }
+  </script>
+</body>
+</html>
