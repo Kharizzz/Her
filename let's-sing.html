@@ -14,10 +14,22 @@
   }
 body {
   margin: 0;
-  font-family: "Inter", system-ui, sans-serif;
-  background: url("./images/background.jpg") repeat center center fixed;
+  font-family: "Inter", system-ui;
+  color: var(--accent);
+  overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("./images/background.jpg") no-repeat center center;
   background-size: cover;
-  color: black; /* or white, depending on readability */
+  z-index: -1;   /* stays behind all content */
 }
 
 section, .block {
@@ -127,7 +139,7 @@ section, .block {
     <audio id="bgAudio" src="./images/bad.mp3" preload="auto" playsinline></audio>
 <main>
   <section class="hero" style="height: 100vh;">
-    <h1>Yukk scroll ikutin lagunya! Happy Singing <br>😆😆😆</h1>
+    <h1>Yukk scroll ikutin lagunya! Happy Singingg <br>😆😆😆</h1>
   </section>
 
   <!-- Verse 1 -->
