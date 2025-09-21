@@ -126,7 +126,7 @@
 
   <!-- Page 17 -->
   <div class="page" id="page17">
-    <h2>Tetoottt jawabannya salah! <br>😜😛😝 <br>yauda daripada makin kepo kita buka langsung aja gimana? 😁</h2>
+    <h2>Tetoottt jawabannya salah! <br>😜😛😝 <br>yauda daripada penasaran kita buka langsung aja gimana? 😁</h2>
     <button onclick="goToPage(18)">Yukk bukaa! 😃</button>
   </div>
 
@@ -151,12 +151,13 @@
   </div>
 
   <!-- Page 21 -->
-  <div class="page" id="page21">
-    <h2>Beneran suka? 🤔 Kalo gitu coba dong kasih rating dari 1-10 hehe ✨</h2>
-    <div id="rating-buttons" class="buttons"></div>
-    <p id="rating-msg" style="display:none;">oopss! gabisa dipencet yah? 🤭👇</p>
-    <button id="rating-next" style="display:none;" onclick="goToPage(22)">iya nihh 😅</button>
-  </div>
+<div class="page" id="page21">
+  <h2>Beneran suka? 🤔 Kalo gitu coba dong kasih rating dari 1-10 hehe ✨</h2>
+  <div id="rating-buttons" class="buttons"></div>
+  <p id="rating-msg" style="display:none;">oopss! gabisa dipencet yah? 🤭👇</p>
+  <button id="rating-next" style="display:none;" onclick="goToPage(22)">iya nihh 😅</button>
+</div>
+
 
   <!-- Page 22 -->
   <div class="page" id="page22">
@@ -204,18 +205,22 @@
         const container = document.getElementById("rating-buttons");
         container.innerHTML = "";
         const emojis = ["😒","😕","😐","🙂","😃","😄","😁","😆","🤩","🥳"];
-        for (let i=1; i<=10; i++) {
-          const btn = document.createElement("button");
-          btn.textContent = i + " " + emojis[i-1];
-          container.appendChild(btn);
+        for (let i = 1; i <= 10; i++) {
+            const btn = document.createElement("button");
+            btn.textContent = i + " " + emojis[i - 1];
+            btn.onclick = () => {
+            // setelah tombol rating ditekan, tunggu 3 detik baru tampilkan teks & tombol
+            setTimeout(() => {
+                document.getElementById("rating-msg").style.display = "block";
+                document.getElementById("rating-next").style.display = "inline-block";
+                document.getElementById("rating-next").style.background = "white";
+                document.getElementById("rating-next").style.marginBottom = "5%";
+            }, 5000);
+            };
+            container.appendChild(btn);
         }
-        setTimeout(()=>{
-          document.getElementById("rating-msg").style.display="block";
-          document.getElementById("rating-next").style.display="inline-block";
-          document.getElementById("rating-next").style.background="white";
-          document.getElementById("rating-next").style.marginBottom="5%";
-        },8000);
-      }
+        }
+
     }
   </script>
 </body>
