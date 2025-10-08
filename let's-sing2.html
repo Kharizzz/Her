@@ -205,6 +205,9 @@
       if (num === 19) {
         const body = document.body;
         
+    // Remove old backgrounds
+    body.style.background = "black";
+        
     // Check if video background already exists
     if (!document.getElementById("bgVideo")) {
       const video = document.createElement("video");
