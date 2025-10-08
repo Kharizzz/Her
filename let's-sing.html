@@ -20,6 +20,7 @@ body {
   position: relative;
 }
 
+/* background (kept as your current approach) */
 body::before {
   content: "";
   position: fixed;
@@ -36,108 +37,158 @@ section, .block {
   background: transparent !important; /* ensure no section hides the body bg */
 }
 
+/* MAIN layout */
+main{
+  max-width:900px;
+  margin:0 auto;
+  padding:36px 20px 120px;
+  /* hidden until audio ready */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .35s ease, visibility .35s ease;
+}
 
-  main{
-    max-width:900px;
-    margin:0 auto;
-    padding:36px 20px 120px;
-  }
+main.visible {
+  visibility: visible;
+  opacity: 1;
+}
 
-  .hero{
-    min-height:30vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    gap:10px;
-    text-align:center;
-  }
-  .hero h1{
-    margin: 0 5%;
-      color: white;
-      font-weight: bolder;
-      font-size: 2.5em;
-      text-shadow: 2px 2px 4px black;
-  }
+.hero{
+  min-height:30vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:10px;
+  text-align:center;
+}
+.hero h1{
+  margin: 0 5%;
+    color: white;
+    font-weight: bolder;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px black;
+}
 
-  .block{
-    margin:28px 0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:14px;
-  }
+.block{
+  margin:28px 0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+}
 
-  .lyric{
-    width:100%;
-    min-height:25vh;
-    max-height:35vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:12px 20px;
-    box-sizing:border-box;
-    text-align:center;
-    font-family:"Playfair Display",serif;
-    font-size:clamp(1.25rem,3.2vw,2rem);
-    font-weight:700;
-    line-height:1.2;
-    background:rgba(255,255,255,0.55);
-    border-radius:14px;
-    box-shadow:0 6px 20px rgba(17,24,39,0.06);
-  }
+.lyric{
+  width:100%;
+  min-height:25vh;
+  max-height:35vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 20px;
+  box-sizing:border-box;
+  text-align:center;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(1.25rem,3.2vw,2rem);
+  font-weight:700;
+  line-height:1.2;
+  background:rgba(255,255,255,0.55);
+  border-radius:14px;
+  box-shadow:0 6px 20px rgba(17,24,39,0.06);
+}
 
-  .media{
-    width:auto;
-    max-width:100%;
-    height:auto;
-    min-height:25vh;
-    max-height:35vh;
-    border-radius:12px;
-    object-fit:contain;
-    box-shadow:0 10px 30px rgba(2,6,23,0.08);
-  }
+.media{
+  width:auto;
+  max-width:100%;
+  height:auto;
+  min-height:25vh;
+  max-height:35vh;
+  border-radius:12px;
+  object-fit:contain;
+  box-shadow:0 10px 30px rgba(2,6,23,0.08);
+}
 
-  /* reveal animations */
-  .reveal{opacity:0;transform:translateX(0);transition:transform .7s,opacity .7s;}
-  .reveal.text{transform:translateX(-36px);}
-  .reveal.img{transform:translateX(36px);}
-  .in-view{opacity:1;transform:translateX(0);}
+/* reveal animations */
+.reveal{opacity:0;transform:translateX(0);transition:transform .7s,opacity .7s;}
+.reveal.text{transform:translateX(-36px);}
+.reveal.img{transform:translateX(36px);}
+.in-view{opacity:1;transform:translateX(0);}
 
-  /* ending buttons */
-  .end-buttons{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-    align-items:center;
-    margin-top:40px;
-  }
-  .block {
+/* ending buttons */
+.end-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  align-items:center;
+  margin-top:40px;
+}
+.block {
   display: flex;
   flex-direction: column-reverse;
   align-items: center;
-  margin: 10vh 0;  /* ~8% of screen height between sections */
+  margin: 10vh 0;  /* spacing between sections */
 }
-  .end-buttons button{
-    width:75vw;
-    max-width:400px;
-    padding:14px 20px;
-    font-size:1.2rem;
-    font-weight:600;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    background:#f1f1f1;
-    color:black;
-    box-shadow:0 6px 20px rgba(0,0,0,0.15);
-    transition:transform .2s;
-  }
-  .end-buttons button:hover{transform:scale(1.05);}
+.end-buttons button{
+  width:75vw;
+  max-width:400px;
+  padding:14px 20px;
+  font-size:1.2rem;
+  font-weight:600;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  background:#f1f1f1;
+  color:black;
+  box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  transition:transform .2s;
+}
+.end-buttons button:hover{transform:scale(1.05);}
+
+/* Loader overlay */
+#loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+  color: #fff;
+  text-align: center;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 6px solid rgba(255,255,255,0.18);
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+#loader p { margin: 0; font-weight:600; }
+
+/* small helper for loader hidden */
+#loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
 </style>
 </head>
 <body>
     <audio id="bgAudio" src="./images/bad.mp3" preload="auto" playsinline></audio>
-<main>
+
+<!-- Loader overlay (shown while audio loads) -->
+<div id="loader" role="status" aria-live="polite">
+  <div class="spinner" aria-hidden="true"></div>
+  <p id="loaderText">Loading dulu bentar yahh</p>
+</div>
+
+<main id="mainContent">
   <section class="hero" style="height: 100vh;">
     <h1>Yukk scroll ikutin lagunya! Happy Singing <br>😆😆😆</h1>
   </section>
@@ -292,21 +343,91 @@ section, .block {
   <img class="media reveal img" src="./images/47.jpg" alt="">
 </section>
 
-    <section class="hero" style="height: 100vh;">
-    <h1 style="color: yellow; text-shadow: 2px 2px 4px black;">Yeayyy udahh, bagus banget si suara kakakkk😍😍😍</h1>
-    <img src="./images/48.jpg" alt="" style="align-items: center; justify-content: center; width: 50vw; max-width: 200px; border-radius: 15px;">
-    <h1 style="color: yellow; text-shadow: 2px 2px 4px black;">Nah sekarang mau ngapain nich?😃</h1>
-    <div class="end-buttons" style="margin: 0%;">
+<section class="hero" style="height: 100vh;">
+  <h1 style="color: yellow; text-shadow: 2px 2px 4px black;">Yeayyy udahh, bagus banget si suara kakakkk😍😍😍</h1>
+  <img src="./images/48.jpg" alt="" style="align-items: center; justify-content: center; width: 50vw; max-width: 200px; border-radius: 15px;">
+  <h1 style="color: yellow; text-shadow: 2px 2px 4px black;">Nah sekarang mau ngapain nich?😃</h1>
+  <div class="end-buttons" style="margin: 0%;">
     <button onclick="restartSong()">Mau nyanyi lagi duluu😆</button>
     <button onclick="window.location.href='let\'s-dance.html'">Mau lanjut deh, penasaran ada apa🤔</button>
   </div>
-  </section>
-  
-
-  
+</section>
 </main>
 
 <script>
+  // Elements
+  const loader = document.getElementById('loader');
+  const loaderText = document.getElementById('loaderText');
+  const main = document.getElementById('mainContent');
+  const audio = document.getElementById('bgAudio');
+
+  let revealed = false;
+  let fallbackTimer = null;
+
+  function revealMain(reason) {
+    if (revealed) return;
+    revealed = true;
+
+    // hide loader and show main
+    loader.classList.add('hidden');
+    // give small delay for nicer transition
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 400);
+
+    main.classList.add('visible');
+
+    // attempt to play audio if not already started
+    audio.play().catch(()=> {
+      // autoplay blocked — user gesture required; do nothing further
+      // optionally show small hint? (not added to keep UI minimal)
+    });
+
+    // clear fallback timer if any
+    if (fallbackTimer) {
+      clearTimeout(fallbackTimer);
+      fallbackTimer = null;
+    }
+  }
+
+  // When audio is sufficiently loaded to play through
+  audio.addEventListener('canplaythrough', () => {
+    revealMain('canplaythrough');
+  }, { once: true });
+
+  // If audio can at least load some data (faster event) we can decide to reveal too
+  audio.addEventListener('loadeddata', () => {
+    // If canplaythrough hasn't fired quickly, we can reveal after loadeddata as well
+    // (This helps on slow connections where canplaythrough is delayed)
+    if (!revealed) {
+      // give a very short delay to avoid a flash
+      setTimeout(() => revealMain('loadeddata'), 300);
+    }
+  }, { once: true });
+
+  // Try to play immediately (if browser allows, this will trigger audio playback and we can reveal)
+  audio.play().then(() => {
+    revealMain('autoplay-success');
+  }).catch(()=> {
+    // autoplay blocked or delayed — wait for canplaythrough/loadeddata or fallback
+  });
+
+  // If audio errors out, reveal with a message
+  audio.addEventListener('error', () => {
+    loaderText.textContent = 'Gagal memuat lagu — membuka halaman tanpa lagu';
+    setTimeout(() => revealMain('error'), 1000);
+  }, { once: true });
+
+  // Fallback: don't keep user waiting > 12s. Reveal anyway (with a friendly message)
+  fallbackTimer = setTimeout(() => {
+    if (!revealed) {
+      loaderText.textContent = 'Lagu memakan waktu lama untuk dimuat — membuka halaman tanpa lagu';
+      revealMain('timeout');
+    }
+  }, 12000);
+
+  /* --- rest of your existing page JS (reveal on scroll, restartSong, etc.) --- */
+
   // reveal on scroll
   const reveals=document.querySelectorAll('.reveal');
   const obs=new IntersectionObserver((entries)=>{
@@ -315,20 +436,20 @@ section, .block {
     });
   },{threshold:0.25});
   reveals.forEach(r=>obs.observe(r));
-  function restartSong() {
-  // Scroll smoothly back to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
 
-  // Restart the audio
-  const audio = document.querySelector("audio");
-  if (audio) {
-    audio.currentTime = 0;
-    audio.play();
+  function restartSong() {
+    // Scroll smoothly back to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Restart the audio
+    if (audio) {
+      audio.currentTime = 0;
+      audio.play().catch(()=>{});
+    }
   }
-}
-  // autoplay bg audio
-  const audio=document.getElementById('bgAudio');
-  window.addEventListener('load',()=>{audio.play().catch(()=>{});});
+
+  // Remove the old window.load autoplay to avoid conflict (we handle play above)
+  // window.addEventListener('load',()=>{audio.play().catch(()=>{});});
 </script>
 </body>
 </html>
