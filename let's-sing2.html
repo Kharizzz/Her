@@ -1,334 +1,254 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Let's Sing</title>
-<link rel="icon" href="images/icon.png">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --accent:#111827;
-  }
-body {
-  margin: 0;
-  font-family: "Inter", system-ui;
-  color: var(--accent);
-  overflow-x: hidden;
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("./images/background.jpg") no-repeat center center;
-  background-size: cover;
-  z-index: -1;   /* stays behind all content */
-}
-
-section, .block {
-  background: transparent !important; /* ensure no section hides the body bg */
-}
-
-
-  main{
-    max-width:900px;
-    margin:0 auto;
-    padding:36px 20px 120px;
-  }
-
-  .hero{
-    min-height:30vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    gap:10px;
-    text-align:center;
-  }
-  .hero h1{
-    margin: 0 5%;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Play</title>
+  <link rel="icon" href="images/icon.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("./images/background.jpg") no-repeat center center fixed;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .page.active {
+      display: flex;
+      opacity: 1;
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2, p {
+      margin: 0 5%;
       color: white;
       font-weight: bolder;
-      font-size: 2.5em;
+      font-size: 2em;
       text-shadow: 2px 2px 4px black;
-  }
-
-  .block{
-    margin:28px 0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:14px;
-  }
-
-  .lyric{
-    width:100%;
-    min-height:25vh;
-    max-height:35vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:12px 20px;
-    box-sizing:border-box;
-    text-align:center;
-    font-family:"Playfair Display",serif;
-    font-size:clamp(1.25rem,3.2vw,2rem);
-    font-weight:700;
-    line-height:1.2;
-    background:rgba(255,255,255,0.55);
-    border-radius:14px;
-    box-shadow:0 6px 20px rgba(17,24,39,0.06);
-  }
-
-  .media{
-    width:auto;
-    max-width:100%;
-    height:auto;
-    min-height:25vh;
-    max-height:35vh;
-    border-radius:12px;
-    object-fit:contain;
-    box-shadow:0 10px 30px rgba(2,6,23,0.08);
-  }
-
-  /* reveal animations */
-  .reveal{opacity:0;transform:translateX(0);transition:transform .7s,opacity .7s;}
-  .reveal.text{transform:translateX(-36px);}
-  .reveal.img{transform:translateX(36px);}
-  .in-view{opacity:1;transform:translateX(0);}
-
-  /* ending buttons */
-  .end-buttons{
-    display:flex;
-    flex-direction:column;
-    gap:16px;
-    align-items:center;
-    margin-top:40px;
-  }
-  .block {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  margin: 10vh 0;  /* ~8% of screen height between sections */
-}
-  .end-buttons button{
-    width:75vw;
-    max-width:400px;
-    padding:14px 20px;
-    font-size:1.2rem;
-    font-weight:600;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    background:#f1f1f1;
-    color:black;
-    box-shadow:0 6px 20px rgba(0,0,0,0.15);
-    transition:transform .2s;
-  }
-  .end-buttons button:hover{transform:scale(1.05);}
-</style>
+    }
+    .nailong {
+      margin: 0 5%;
+      color: yellow;
+      font-weight: bolder;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px black;
+    }
+    button {
+      width: 75vw;
+      max-width: 400px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: white;
+      color: black;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #f3f3f3;
+      transform: scale(1.05);
+    }
+    img {
+      height: 25vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+    #countdown {
+      font-size: 3em;
+      font-weight: bold;
+      color: black;
+    }
+  </style>
 </head>
 <body>
-    <audio id="bgAudio" src="./images/bad.mp3" preload="auto" playsinline></audio>
-<main>
-  <section class="hero" style="height: 100vh;">
-    <h1>Yukk scroll ikutin lagunya! Happy Singing <br>😆😆😆</h1>
-  </section>
-
-  <!-- Verse 1 -->
-<section class="block">
-  <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
-  <img class="media reveal img" src="./images/15.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">You're the only one who makes me laugh</div>
-  <img class="media reveal img" src="./images/16.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">So how can my day… be bad?</div>
-  <img class="media reveal img" src="./images/17.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">It's a day for you</div>
-  <img class="media reveal img" src="./images/18.jpg" alt="">
-</section>
-
-<!-- Verse 2 -->
-<section class="block">
-  <div class="lyric reveal text">Lately, life's so boring</div>
-  <img class="media reveal img" src="./images/19.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">I've been watching Netflix all day long</div>
-  <img class="media reveal img" src="./images/20.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">I thought there would be… no things left to watch</div>
-  <img class="media reveal img" src="./images/21.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">So I let myself out</div>
-  <img class="media reveal img" src="./images/22.jpg" alt="">
-</section>
-
-<!-- Verse 3 -->
-<section class="block">
-  <div class="lyric reveal text">When I went to the park</div>
-  <img class="media reveal img" src="./images/23.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">I recognized you at a glance</div>
-  <img class="media reveal img" src="./images/24.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">Face to face, we just smiled</div>
-  <img class="media reveal img" src="./images/25.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">We already know that we'll be together</div>
-  <img class="media reveal img" src="./images/26.jpg" alt="">
-</section>
-
-<!-- Chorus -->
-<section class="block">
-  <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
-  <img class="media reveal img" src="./images/27.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">You're the only one who makes me laugh</div>
-  <img class="media reveal img" src="./images/28.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">So how can my day… be bad?</div>
-  <img class="media reveal img" src="./images/29.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">It's a day for you</div>
-  <img class="media reveal img" src="./images/30.jpg" alt="">
-</section>
-
-<!-- Verse 4 -->
-<section class="block">
-  <div class="lyric reveal text">Coffee in the morning</div>
-  <img class="media reveal img" src="./images/31.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">You and the sun</div>
-  <img class="media reveal img" src="./images/32.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">There's a brown hue in your eyes</div>
-  <img class="media reveal img" src="./images/33.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">How pretty it is, I think I'm in love</div>
-  <img class="media reveal img" src="./images/34.jpg" alt="">
-</section>
-
-<!-- Instrument -->
-<section class="block">
-  <div class="lyric reveal text">(Instrument...)</div>
-  <img class="media reveal img" src="./images/35.gif" alt="">
-</section>
-
-<!-- Verse 5 -->
-<section class="block">
-  <div class="lyric reveal text">When I went to the park</div>
-  <img class="media reveal img" src="./images/36.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">I recognized you at a glance</div>
-  <img class="media reveal img" src="./images/37.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">Face to face, we smiled</div>
-  <img class="media reveal img" src="./images/38.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">And I finally held your hands</div>
-  <img class="media reveal img" src="./images/39.jpg" alt="">
-</section>
-
-<!-- Chorus -->
-<section class="block">
-  <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
-  <img class="media reveal img" src="./images/40.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">You're the only one who makes me laugh</div>
-  <img class="media reveal img" src="./images/41.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">So how can my day… be bad?</div>
-  <img class="media reveal img" src="./images/42.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">It's a day for you</div>
-  <img class="media reveal img" src="./images/43.jpg" alt="">
-</section>
-
-<!-- Outro -->
-<section class="block">
-  <div class="lyric reveal text">How could my day be bad when I'm with you?</div>
-  <img class="media reveal img" src="./images/44.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">You're the only one who gives me love</div>
-  <img class="media reveal img" src="./images/45.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">So how can my day… be bad?</div>
-  <img class="media reveal img" src="./images/46.jpg" alt="">
-</section>
-<section class="block">
-  <div class="lyric reveal text">It's a day for you</div>
-  <img class="media reveal img" src="./images/47.jpg" alt="">
-</section>
-
-    <section class="hero" style="height: 100vh;">
-    <h1 style="color: yellow; text-shadow: 2px 2px 4px black;">Yeayyy udahh, bagus banget si suara kakakkk😍😍😍</h1>
-    <img src="./images/48.jpg" alt="" style="align-items: center; justify-content: center; width: 50vw; max-width: 200px; border-radius: 15px;">
-    <h1 style="color: yellow; text-shadow: 2px 2px 4px black;">Nah sekarang mau ngapain nich?😃</h1>
-    <div class="end-buttons" style="margin: 0%;">
-    <button onclick="restartSong()">Mau nyanyi lagi duluu😆</button>
-    <button onclick="window.location.href='let\'s-dance.html'">Mau lanjut deh, penasaran ada apa🤔</button>
+  <!-- Page 11 -->
+  <div class="page active" id="page11">
+    <h2 class="nailong">Haiii gimana tadi asik gakk? 😆🎶</h2>
+    <img src="./images/49.jpg" alt="Asik">
+    <button onclick="goToPage(12)">Asikk bangauuu 🦢</button>
+    <button onclick="goToPage(12)">Iyaa seruuu 🤩</button>
   </div>
-  </section>
-  
 
-  
-</main>
+  <!-- Page 12 -->
+  <div class="page" id="page12">
+    <h2 class="nailong">Yeayy syukur dehh, yauda kalo gitu aku pergi dulu yaa 👋</h2>
+    <img src="./images/50.jpg" alt="Bye">
+    <button onclick="goToPage(13)">Eh kamu mau ke mana nailong?? 🤔</button>
+    <button onclick="goToPage(13)">Nailong kok kamu pergiii? 😢</button>
+  </div>
 
-<script>
-  // reveal on scroll
-  const reveals=document.querySelectorAll('.reveal');
-  const obs=new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add('in-view');}
-    });
-  },{threshold:0.25});
-  reveals.forEach(r=>obs.observe(r));
-  function restartSong() {
-  // Scroll smoothly back to top
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  <!-- Page 13 -->
+  <div class="page" id="page13">
+    <h2 class="nailong">Ya pergi aja yuhuu byeee 👋😝</h2>
+    <img src="./images/51.gif" alt="Bye">
+    <button onclick="goToPage(14)">Ishh yauda bye nailong 😤</button>
+    <button onclick="goToPage(14)">hush hush pergi sana 😒</button>
+  </div>
 
-  // Restart the audio
-  const audio = document.querySelector("audio");
-  if (audio) {
-    audio.currentTime = 0;
-    audio.play();
-  }
-}
-  // autoplay bg audio
-  const audio=document.getElementById('bgAudio');
-  window.addEventListener('load',()=>{audio.play().catch(()=>{});});
-</script>
+  <!-- Page 14 -->
+  <div class="page" id="page14">
+    <h2>Yah nailongnya udah pergi ya wkwk 🤭, yauda biarin aja kita lanjut dulu yu 🤙</h2>
+    <button onclick="goToPage(15)">Iya biarin aja 😅</button>
+    <button onclick="goToPage(15)">Yu lanjut 😃</button>
+  </div>
+
+  <!-- Page 15 -->
+  <div class="page" id="page15">
+    <h2>Nah sekarang kita bahas kado nihh, penasaran gak?🎁😄</h2>
+    <button onclick="goToPage(16)">Penasaran dongg 😍</button>
+    <button onclick="goToPage(16)">Bangett 🤩</button>
+  </div>
+
+  <!-- Page 16 (baru ditambah) -->
+  <div class="page" id="page16">
+    <h2>Tau gak kira-kira apa isinya? 🤔🎁</h2>
+    <button onclick="goToPage(17)">Motor 🏍️</button>
+    <button onclick="goToPage(17)">Mesin Cuci 🧺</button>
+    <button onclick="goToPage(17)">Kulkas 🧊</button>
+    <button onclick="goToPage(17)">RUMAH PILAH SAMPAH🗣️🏠🗑️</button>
+  </div>
+
+  <!-- Page 17 -->
+  <div class="page" id="page17">
+    <h2>Tetoottt jawabannya salah! <br>😜😛😝 <br>yauda daripada penasaran kita buka langsung aja gimana? 😁</h2>
+    <button onclick="goToPage(18)">Yukk bukaa! 😃</button>
+  </div>
+
+  <!-- Page 18 (Countdown 5s) -->
+  <div class="page" id="page18">
+    <h2>Yeay kita hitung yaaa:</h2>
+    <p id="countdown2">5</p>
+  </div>
+
+  <!-- Page 19 (Gift + music) -->
+  <div class="page" id="page19">
+    <h2>Yukk dibuka, dibaca dan dimainin dulu hadiahnya ya!🎁😆 <br> Kalo udah kita lanjut sedikit lagi👇</h2>
+    <img src="./images/52.gif" alt="Gift">
+    <button onclick="goToPage(20)">Udah nihh yuk lanjut 🚀</button>
+  </div>
+
+  <!-- Page 20 -->
+  <div class="page" id="page20">
+    <h2>Yeayy udahh 😍, gimanaa suka ga sama semuanyaaa? 🎶</h2>
+    <button onclick="goToPage(21)">sukakk 😁</button>
+    <button onclick="goToPage(21)">suka banget 🥰</button>
+  </div>
+
+  <!-- Page 21 -->
+<div class="page" id="page21">
+  <h2>Beneran suka? 🤔 Kalo gitu coba dong kasih rating dari 1-10 hehe ✨</h2>
+  <div id="rating-buttons" class="buttons"></div>
+  <p id="rating-msg" style="display:none;">oopss! gabisa dipencet yah? 🤭👇</p>
+  <button id="rating-next" style="display:none;" onclick="goToPage(22)">iya nihh 😅</button>
+</div>
+
+
+  <!-- Page 22 -->
+  <div class="page" id="page22">
+    <h2>yaudah kita ganti cara rating-nya ya? 😆</h2>
+    <button onclick="goToPage(23)">okee, gimana? 🤔</button>
+  </div>
+
+  <!-- Page 23 -->
+  <div class="page" id="page23">
+    <h2>(baca dulu ampe abis ya) <br>Caranya adalah: <br> 1. Pencet tombol putih di bawah <br> 2. Kirim pesan yang udah disiapin <br> 3. Kasih stiker nailong sebanyak 1-10 (gaboleh sama) sesuai ratingnya😁</h2>
+    <button onclick="window.open('https://wa.me/6285811176748?text=Anyeongg%20kharis%20%3A3%20rating-nya%20adalah...', '_blank')">Yuk rating ✍</button>
+  </div>
+
+  <audio id="bgMusic" src="./images/mine.mp3" loop></audio>
+
+  <script>
+    let bgMusic = document.getElementById("bgMusic");
+
+    function goToPage(num) {
+      document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+        p.style.display = "none";
+      });
+      const target = document.getElementById('page' + num);
+      if (!target) return;
+      target.style.display = "flex";
+      setTimeout(() => target.classList.add('active'), 50);
+
+      if (num === 18) {
+        let countdown = 5;
+        const counter = document.getElementById("countdown2");
+        counter.textContent = countdown;
+        const interval = setInterval(() => {
+          countdown--;
+          counter.textContent = countdown;
+          if (countdown === 0) {
+            clearInterval(interval);
+            goToPage(19);
+            bgMusic.play().catch(()=>{});
+          }
+        }, 1000);
+      }
+      
+
+      if (num === 19) {
+        const body = document.body;
+    // Remove old backgrounds
+    body.style.background = "none";
+        
+    // Check if video background already exists
+    if (!document.getElementById("bgVideo")) {
+      const video = document.createElement("video");
+      video.id = "bgVideo";
+      video.src = "./images/fireworks.mp4";
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.style.position = "fixed";
+      video.style.top = "0";
+      video.style.left = "0";
+      video.style.width = "100%";
+      video.style.height = "100%";
+      video.style.objectFit = "cover";
+      video.style.zIndex = "-1"; // behind everything
+      video.style.pointerEvents = "none"; // so you can click buttons
+      document.body.prepend(video);
+    }
+  } 
+
+
+      if (num === 21) {
+        const container = document.getElementById("rating-buttons");
+        container.innerHTML = "";
+        const emojis = ["😒","😕","😐","🙂","😃","😄","😁","😆","🤩","🥳"];
+        for (let i = 1; i <= 10; i++) {
+            const btn = document.createElement("button");
+            btn.textContent = i + " " + emojis[i - 1];
+            btn.onclick = () => {
+            // setelah tombol rating ditekan, tunggu 3 detik baru tampilkan teks & tombol
+            setTimeout(() => {
+                document.getElementById("rating-msg").style.display = "block";
+                document.getElementById("rating-next").style.display = "inline-block";
+                document.getElementById("rating-next").style.background = "white";
+                document.getElementById("rating-next").style.marginBottom = "5%";
+            }, 5000);
+            };
+            container.appendChild(btn);
+          }
+        }
+      }
+
+  </script>
 </body>
 </html>
