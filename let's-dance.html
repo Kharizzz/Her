@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let's Dance</title>
+  <link rel="icon" href="images/icon.png">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url("./images/background.jpg") no-repeat center center fixed;
+      text-align: center;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .page {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .page.active {
+      display: flex;
+      opacity: 1;
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2, p {
+      margin: 0 5%;
+      color: white;
+      font-weight: bolder;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px black;
+    }
+    .nailong {
+      margin: 0 5%;
+      color: yellow;
+      font-weight: bolder;
+      font-size: 2em;
+      text-shadow: 2px 2px 4px black;
+    }
+    button {
+      width: 75vw;
+      max-width: 400px;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: white;
+      color: black;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #f3f3f3;
+      transform: scale(1.05);
+    }
+    img {
+      height: 30vh;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+    video {
+      width: 100%;
+      max-height: 90vh;
+      border-radius: 12px;
+    }
+    #countdown {
+      font-size: 3em;
+      font-weight: bold;
+      color: yellow;
+      text-shadow: 2px 2px 5px black;
+    }
+    #musicText {
+      font-size: 3em;
+      color: yellow;
+      text-shadow: 3px 3px 6px black;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div class="page active" id="page1">
+    <h2 class="nailong">Haloo lagii 😆 gimanaa seru kann lucu kannn xixixi</h2>
+    <img src="./images/61.jpg" alt="Dance Intro">
+    <button onclick="goToPage(2)">Seruuuu 🤩</button>
+    <button onclick="goToPage(2)">Lucuuuuu 🤭</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" id="page2">
+    <h2 class="nailong">Yeayy tapi masih ada lagi nihh abis ini. Mau lanjut gakk?😏</h2>
+    <img src="./images/62.jpg" alt="Lanjut?">
+    <button onclick="goToPage(3)">Lanjut dongg 😃</button>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page" id="page3">
+    <h2 class="nailong">Yaudah kalo gitu kita berdiri dulu yukk </h2>
+    <img src="./images/63.jpg" alt="Berdiri">
+    <button onclick="goToPage(4)">Eh berdiri?</button>
+    <button onclick="goToPage(4)">Mau ngapain? 🤔</button>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page" id="page4">
+    <h2 class="nailong">Udahh berdiri aja dulu nanti juga tauu</h2>
+    <img src="./images/64.jpg" alt="Stand Up">
+    <button onclick="goToPage(5)">Yauda iya 😊</button>
+    <button onclick="goToPage(5)">Oke udah ni 😁</button>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page" id="page5">
+    <h2 class="nailong">Nahh abis ini jangan malu-malu ya buat ikutin aku jogett xixix</h2>
+    <img src="./images/65.jpg" alt="Ready Dance">
+    <button onclick="goToPage(6)">Hah joget banget???😨</button>
+    <button onclick="goToPage(6)">Malu ih Nailongg😫</button>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page" id="page6">
+    <h2 class="nailong">Ehhh cuma buat kita seru-seruan kakkk sebentar doang kokk😆, udahh pokonya joget ya</h2>
+    <img src="./images/66.jpg" alt="Ready Dance">
+    <button onclick="goToPage(7)">Iya deh iya😌</button>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page" id="page7">
+    <h2 class="nailong">Janji?</h2>
+    <img src="./images/67.jpg" alt="Ready Dance">
+    <button onclick="goToPage(8)">Iya janji</button>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page" id="page8">
+    <h2 class="nailong">Janji????????🤨</h2>
+    <img src="./images/68.jpg" alt="Ready Dance">
+    <button onclick="goToPage(9)">Iyaaaaaaaaaaaaaa😭</button>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page" id="page9">
+    <h2 class="nailong">Okey kalo gitu hpnya taro dulu di tempat yang bisa kamu liat tapi pastiin aman ya, siappp???</h2>
+    <img src="./images/69.jpg" alt="Ready Dance">
+    <button onclick="goToPage(10)">SIAPPPPP😁</button>
+  </div>
+
+  <!-- Page 6 (Countdown) -->
+  <div class="page" id="page10">
+    <h2 class="nailong">Yeayyyy kita akan jogedd dalamm: 🥁</h2>
+    <p id="countdown">5</p>
+    <h2 id="musicText">MUSIKKKK 🎶</h2>
+  </div>
+
+  <!-- Page 7 (Video) -->
+  <div class="page" id="page11">
+    <video id="danceVideo" src="./images/70.mp4"></video>
+    
+    <div id="afterVideo" style="display:none;">
+      <h2 class="nailong">Udahhh xixi asikk banget kan jogetnyaa 😆<br>Sekarang mau lagi apa lanjut?</h2><br><br>
+      <button onclick="replayVideo()">Asik banget ihhh mau lagi dulu dong 🔁</button> <br><br>
+      <button onclick="window.location.href='let\'s-sing2.html'">Gemoyy dehh tapi penasaran mau lanjut 👉</button>
+    </div>
+  </div>
+
+  <script>
+    function goToPage(num) {
+      document.querySelectorAll('.page').forEach(p => {
+        p.classList.remove('active');
+        p.style.display = "none";
+      });
+      const target = document.getElementById('page' + num);
+      if (!target) return;
+      target.style.display = "flex";
+      setTimeout(() => target.classList.add('active'), 50);
+
+      if (num === 10) {
+        let countdown = 5;
+        const counter = document.getElementById("countdown");
+        const musicText = document.getElementById("musicText");
+        const interval = setInterval(() => {
+          countdown--;
+          counter.textContent = countdown;
+          if (countdown === 0) {
+            clearInterval(interval);
+            counter.style.display = "none";
+            musicText.style.display = "block";
+            setTimeout(() => goToPage(11), 2000);
+          }
+        }, 1000);
+      }
+
+      if (num === 11) {
+        const video = document.getElementById("danceVideo");
+        const afterVideo = document.getElementById("afterVideo");
+
+        video.currentTime = 0;
+        video.play();
+
+        // Jika video bisa dideteksi durasinya
+        video.onended = () => {
+          afterVideo.style.display = "block";
+          video.style.display = "none";
+        };
+
+      }
+    }
+
+    function replayVideo() {
+      const video = document.getElementById("danceVideo");
+      const afterVideo = document.getElementById("afterVideo");
+      afterVideo.style.display = "none";
+      video.style.height = "90vh";
+      video.currentTime = 0;
+      video.play();
+    }
+  </script>
+
+</body>
+</html>
